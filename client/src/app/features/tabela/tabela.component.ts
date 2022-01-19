@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { cb } from 'campeonato-brasileiro-api'
 
 @Component({
   selector: 'app-tabela',
@@ -12,7 +11,7 @@ export class TabelaComponent implements OnInit {
 
   ngOnInit(): void {
 
-   
+
   }
 
 
