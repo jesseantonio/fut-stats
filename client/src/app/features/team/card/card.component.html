@@ -5,8 +5,10 @@
     </th>
   </tr>
 
-  <tr *ngFor="let nomes of teams">
-    <td>{{ nomes }}</td>
+  <tr *ngFor="let team of teams">
+    <td>{{  team.displayName }}</td>
+    <td *ngFor="let stat of team.stats">{{ stat.value }}</td>
+
   </tr>
 </table>
 
