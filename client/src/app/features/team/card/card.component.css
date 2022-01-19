@@ -1,0 +1,66 @@
+* {
+  font-family: 'Baloo 2', cursive;
+  font-size: 19px;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#tabela-brasileirao {
+  text-align: center;
+  border-collapse: collapse;
+  border: solid 2px #222222;
+}
+.vit {
+  background-color: green;
+}
+.emp {
+  background-color: gold;
+}
+.der{
+  background-color: red;
+}
+
+.logos {
+  height: 20px;
+  margin-top: 5px;
+}
+.posicao {
+  background-color: #222222;
+  width: 18px;
+  color: white;
+}
+.time {
+  text-align: left;
+}
+
+tr > th {
+  background-color: #222222;
+  color: whitesmoke;
+  font-weight: 600;
+  margin-bottom: 100px;
+}
+
+th, td {
+  padding: 7px;
+}
+
+tbody > :hover {
+  /*#B5FFE1*/
+  /* #BFD1E5 */
+  /* #0466c8 */
+  background-color: #0496ff   ;
+  color: rgb(255, 255, 255);
+}
+
+button {
+  border: 1px;
+  border-radius: 100%;
+  padding: 7px;
+  margin: 5px;
+}
+tr {
+  border: solid 2px #222222;
+}
