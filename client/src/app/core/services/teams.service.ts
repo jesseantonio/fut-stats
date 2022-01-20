@@ -11,7 +11,7 @@ export class TeamsService {
 
   private _team = new Subject<Team>();
 
-  private baseUrl = `${environment.baseUrl}/leagues/bra.1/standings?season=2018`
+  private baseUrl = `${environment.baseUrl}/leagues/bra.1/standings?season=2017`
 
 
 

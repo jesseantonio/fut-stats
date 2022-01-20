@@ -6,7 +6,10 @@
   </tr>
 
   <tr *ngFor="let team of teams">
-    <td>{{  team.displayName }}</td>
+    <td>
+      <img class="logo_time" src="https://w7.pngwing.com/pngs/941/692/png-transparent-black-small-apple-logo-logo-material-apple-logo-black.png" alt="">
+      {{  team.displayName }}
+    </td>
     <td *ngFor="let stat of team.stats">{{ stat.value }}</td>
 
   </tr>
