@@ -11,14 +11,16 @@ export class TeamsService {
 
   private _team = new Subject<Team>();
 
-  private baseUrl = `${environment.baseUrl}/leagues/bra.1/standings?season=2012`
+  private baseUrl = `${environment.baseUrl}`
 
 
 
   constructor(private http: HttpClient) { }
 
   all(){
-    return this.http.get<Team>(this.baseUrl)
+    return this.http.get<Team>(`${this.baseUrl}/leagues/bra.1/standings?season=2016`)
+
+
     // return this.http.get<Team>(this.baseUrl).pipe(map(((response: any) => {
     //   return response.data.standings.find(standing => standing.team.id === '819').team
     // })))
@@ -26,6 +28,11 @@ export class TeamsService {
 
   getOne(id: number): Observable<Team> {
     return this.http.get<Team>(`${this.baseUrl}/${id}`);
+  }
+
+
+  logoTime(){
+    return this.http.get<Team>(`${this.baseUrl}/leagues`)
   }
 
 }

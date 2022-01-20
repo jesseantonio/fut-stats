@@ -4,6 +4,7 @@ import { Team } from 'src/app/core/model/team';
 import { TeamsService } from 'src/app/core/services/teams.service';
 import {MatTableModule} from '@angular/material/table';
 
+
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -11,7 +12,7 @@ import {MatTableModule} from '@angular/material/table';
 })
 export class CardComponent implements OnInit {
   @Input()
-  teams = [];
+
   points = [];
   partidasJogadas = [];
   vitorias = [];
@@ -21,17 +22,18 @@ export class CardComponent implements OnInit {
   golsSofridos = [];
   saldoDeGols = [];
   posicoes = []
-
-
+  logos = []
+  logosTimes=[]
+  teams = [];
 
   constructor(private teamsService: TeamsService) { }
 
   ngOnInit(): void {
     this.teamsService.all().subscribe((value: any) => {
       this.teams = value.data.standings.map(standing => ({...standing.team, ...{stats: standing.stats.filter(stat => !['All Splits', 'deductions', 'ppg', 'rankChange', 'rank' ].includes(stat.name)).sort()}}))
-
-      let teste = value.data.standings.map(standing => ({...standing.team, ...{stats: standing.stats.hasOwnProperty('name')}}))
       console.log(this.teams)
+      let teste = value.data.standings.map(standing => ({...standing.team, ...{stats: standing.stats.hasOwnProperty('name')}}))
+
 
       let posicao2 = value.data.standings.flatMap(standing => standing.stats.filter(stat => stat.name == "rank").map(stat => stat.value))
       this.posicoes = posicao2;
@@ -67,22 +69,49 @@ export class CardComponent implements OnInit {
       // this.saldoDeGols = saldoDeGols;
 
 
-
-
-
-
-
       let sem1 = value.data.standings.map(standing => ({...standing.team, ...{stats: standing.stats.filter(stat => stat.name != 'All Splits')}}))
       let sem2 = value.data.standings.map(standing => ({...standing.team, ...{stats: standing.stats.filter(stat => stat.name != 'ppg')}}))
       let sem3 = value.data.standings.map(standing => ({...standing.team, ...{stats: standing.stats.filter(stat => stat.name != 'deductions')}}))
       let sem4 = value.data.standings.map(standing => ({...standing.team, ...{stats: standing.stats.filter(stat => stat.name != 'rankChange')}}))
       let sem5 = value.data.standings.map(standing => ({...standing.team, ...{stats: standing.stats.filter(stat => stat.name != 'points')}}))
 
-
-
+      let logos = value.data.standings.map(standing => {
+        let url = standing.team.logos[0].href
+        let splitTerm = "/i/"
+        let urlSplitted = url.split(splitTerm)
+        urlSplitted[0] = urlSplitted[0].replaceAll('.', '-')
+        url = urlSplitted.join(`.translate.goog${splitTerm}`)
+        return url
     })
-  }
 
-  headers = ['Clube', 'Pts', 'PJ', 'VIT', 'E', 'DER', 'GP', 'GC', 'SG', 'Últimas cinco'];
+    console.log()
+
+
+
+
+
+    this.teams[logos] = value;
+    console.log(this.teams)
+
+    this.logos = logos;
+
+    this.logos.pop()
+
+
+    console.log(this.teams)
+
+    }
+
+    )
+    this.teamsService.logoTime().subscribe((value: any) => {
+      let logosTimes = value.data.map(standing => standing.logos["light"])
+      this.logos = logosTimes
+
+      // console.log(logosTimes)
+    }
+
+    )}
+
+  headers = ['Clube', 'Vitórias', 'Derrotas', 'Empates', 'Jogos', 'Gols', 'Gols Sofridos', 'Pontos', 'Saldo de Gols'];
 
 }

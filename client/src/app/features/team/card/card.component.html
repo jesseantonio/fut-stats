@@ -1,19 +1,35 @@
-<table>
-  <tr>
-    <th *ngFor="let header of headers">
-      {{ header }}
-    </th>
-  </tr>
+<div class="container-inner">
+  <table>
+    <tr>
+      <th *ngFor="let header of headers">
+        <p>
+          {{ header }}
+        </p>
+      </th>
+    </tr>
 
-  <tr *ngFor="let team of teams; let i = index">
+    <tr *ngFor="let team of teams; let i = index">
 
-    <td>
-      {{ i + 1 }}
-      <img class="logo_time" src="https://w7.pngwing.com/pngs/941/692/png-transparent-black-small-apple-logo-logo-material-apple-logo-black.png" alt="">
-       {{  team.displayName }}
-    </td>
-    <td *ngFor="let stat of team.stats">{{ stat.value }}</td>
 
-  </tr>
-</table>
+      <td >
+        {{ (i + 1) }}
+        <img class="logo_time" [src]="team.logos[0].href" alt="">
+
+        {{  team.displayName }}
+
+      </td>
+      <td *ngFor="let stat of team.stats"><p>
+        {{ stat.value }}
+      </p></td>
+
+    </tr>
+  </table>
+</div>
+
+
+<!-- <div *ngFor="let logo of logos">
+ <img [src]="logo" class="logo_time" alt="não foi possível colocar">
+  <p > {{logo}}</p>
+</div> -->
+
 
