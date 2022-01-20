@@ -20,46 +20,51 @@ export class CardComponent implements OnInit {
   golsFeitos = [];
   golsSofridos = [];
   saldoDeGols = [];
+  posicoes = []
+
+
 
   constructor(private teamsService: TeamsService) { }
 
   ngOnInit(): void {
     this.teamsService.all().subscribe((value: any) => {
-      this.teams = value.data.standings.map(standing => ({...standing.team, ...{stats: standing.stats}}))
+      this.teams = value.data.standings.map(standing => ({...standing.team, ...{stats: standing.stats.filter(stat => !['All Splits', 'deductions', 'ppg', 'rankChange', 'rank' ].includes(stat.name)).sort()}}))
 
       let teste = value.data.standings.map(standing => ({...standing.team, ...{stats: standing.stats.hasOwnProperty('name')}}))
       console.log(this.teams)
 
+      let posicao2 = value.data.standings.flatMap(standing => standing.stats.filter(stat => stat.name == "rank").map(stat => stat.value))
+      this.posicoes = posicao2;
 
-      let time = (value.data.standings.find(standing => standing.team.id === '819').team.logos)
+      // let time = (value.data.standings.find(standing => standing.team.id === '819').team.logos)
 
-      value.data.standings.map(standing => standing.team.name)
-      let tela = this.teams.slice(0, 20)
+      // value.data.standings.map(standing => standing.team.name)
+      // let tela = this.teams.slice(0, 20)
 
 
-      let pontos = value.data.standings.flatMap(standing => standing.stats.filter(stat => stat.name == "points").map(stat => stat.value))
-      this.points = pontos;
+      // let pontos = value.data.standings.flatMap(standing => standing.stats.filter(stat => stat.name == "points").map(stat => stat.value))
+      // this.points = pontos;
 
-      let partidasJogadas = value.data.standings.flatMap(standing => standing.stats.filter(stat => stat.name == "gamesPlayed").map(stat => stat.value))
-      this.partidasJogadas = partidasJogadas;
+      // let partidasJogadas = value.data.standings.flatMap(standing => standing.stats.filter(stat => stat.name == "gamesPlayed").map(stat => stat.value))
+      // this.partidasJogadas = partidasJogadas;
 
-      let vitorias = value.data.standings.flatMap(standing => standing.stats.filter(stat => stat.name == "wins").map(stat => stat.value));
-      this.vitorias = vitorias;
+      // let vitorias = value.data.standings.flatMap(standing => standing.stats.filter(stat => stat.name == "wins").map(stat => stat.value));
+      // this.vitorias = vitorias;
 
-      let empates = value.data.standings.flatMap(standing => standing.stats.filter(stat => stat.name == "ties").map(stat => stat.value));
-      this.empates = empates;
+      // let empates = value.data.standings.flatMap(standing => standing.stats.filter(stat => stat.name == "ties").map(stat => stat.value));
+      // this.empates = empates;
 
-      let derrotas = value.data.standings.flatMap(standing => standing.stats.filter(stat => stat.name == "losses").map(stat => stat.value));
-      this.derrotas = derrotas;
+      // let derrotas = value.data.standings.flatMap(standing => standing.stats.filter(stat => stat.name == "losses").map(stat => stat.value));
+      // this.derrotas = derrotas;
 
-      let golsFeitos = value.data.standings.flatMap(standing => standing.stats.filter(stat => stat.name == "pointsFor").map(stat => stat.value));
-      this.golsFeitos = golsFeitos;
+      // let golsFeitos = value.data.standings.flatMap(standing => standing.stats.filter(stat => stat.name == "pointsFor").map(stat => stat.value));
+      // this.golsFeitos = golsFeitos;
 
-      let golsSofridos = value.data.standings.flatMap(standing => standing.stats.filter(stat => stat.name == "pointsAgainst").map(stat => stat.value));
-      this.golsSofridos = golsSofridos;
+      // let golsSofridos = value.data.standings.flatMap(standing => standing.stats.filter(stat => stat.name == "pointsAgainst").map(stat => stat.value));
+      // this.golsSofridos = golsSofridos;
 
-      let saldoDeGols = value.data.standings.flatMap(standing => standing.stats.filter(stat => stat.name == "pointDifferential").map(stat => stat.value));
-      this.saldoDeGols = saldoDeGols;
+      // let saldoDeGols = value.data.standings.flatMap(standing => standing.stats.filter(stat => stat.name == "pointDifferential").map(stat => stat.value));
+      // this.saldoDeGols = saldoDeGols;
 
 
 
@@ -78,6 +83,6 @@ export class CardComponent implements OnInit {
     })
   }
 
-  headers = ['Clube', 'Pts', 'PJ', 'VIT', 'E', 'DER', 'GC', 'SG', 'Últimas cinco'];
+  headers = ['Clube', 'Pts', 'PJ', 'VIT', 'E', 'DER', 'GP', 'GC', 'SG', 'Últimas cinco'];
 
 }
