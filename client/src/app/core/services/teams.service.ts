@@ -18,7 +18,7 @@ export class TeamsService {
   constructor(private http: HttpClient) { }
 
   all(){
-    return this.http.get<Team>(`${this.baseUrl}/leagues/bra.1/standings?season=2016`)
+    return this.http.get<Team>(`${this.baseUrl}/leagues/bra.1/standings?season=2021`)
 
 
     // return this.http.get<Team>(this.baseUrl).pipe(map(((response: any) => {

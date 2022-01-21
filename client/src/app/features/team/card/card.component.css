@@ -147,15 +147,9 @@ tr:nth-child(21n+0) {
   background-color: #ECECEC;
 }
 
-
-
-
-
-
-
   td {
     display: table-cell;
-
+    vertical-align: middle;
   }
 
   td::before {
@@ -177,4 +171,6 @@ tr:nth-child(21n+0) {
 
 td{
   padding-left: 25px;
+
+
 }

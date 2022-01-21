@@ -5,8 +5,15 @@ import { PageNotFoundComponent } from "../core/page-not-found/page-not-found.com
 const routes: Routes = [
     {
       path: '',
-      pathMatch: 'full'
+      redirectTo: 'home',
+      pathMatch: 'full',
     },
+    {
+      path: 'home',
+      loadChildren: async () =>
+        import('./home/home.module').then((m) => m.HomeModule),
+    },
+
     {
       path: 'teams',
       loadChildren: async () =>
