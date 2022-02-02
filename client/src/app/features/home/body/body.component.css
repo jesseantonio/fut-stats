@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', 'Verdana', sans-serif;
+}
+
+.title {
+  font-family: 'Poppins', 'Verdana', sans-serif;
+  font-size: 48px;
+  color: #0A3151;
+}
+
+.content{
+  margin-top: 50px;
+  margin-left: 100px;
+}
+
+.img-responsive{
+  width: 500px;
+  height: auto;
+  position: relative;
+  left: 50%;
+}
+.buttons{
+  margin-top: 50px;
+  margin-left: 150px;
+  padding-left: 10px;
+}
+button{
+  cursor: pointer;
+  width: 120px;
+  height: 30px;
+  background-color: #0A3151;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  margin-left: 10px;
+}
+section{
+  padding-top: 5%;
+  padding-bottom: 5%;
+  background-color: #0A3151
+}
+section div h1, p {
+  color: #fff;
+  font-family: 'Poppins', 'Verdana', sans-serif;
+}
+
+section div h1 {
+  font-size: 36px;
+}
+
+section div p {
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+section div {
+  margin-left: 35%;
+}
