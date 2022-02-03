@@ -49,13 +49,15 @@ section div h1, p {
 
 section div h1 {
   font-size: 36px;
+  text-align: center;
 }
 
 section div p {
+  text-align: center;
   font-size: 18px;
   font-weight: lighter;
 }
 
 section div {
-  margin-left: 35%;
+ 
 }
