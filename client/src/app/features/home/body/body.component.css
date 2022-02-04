@@ -89,7 +89,7 @@ section div {
 
 @media (min-width: 1024px) {
   .parent {
-    display: grid;
+    display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(200px, 50px));
     margin-left: 5vh;
     margin-right: 5vh;
