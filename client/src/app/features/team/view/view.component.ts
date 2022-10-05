@@ -12,11 +12,7 @@ export class ViewComponent implements OnInit {
   constructor(private teamsService: TeamsService) {}
 
   ngOnInit(): void {
-    this.teamsService.all().subscribe((value) => {
-      // this.team = value
-    })
-  }
 
-  team: Team[] = [];
+  }
 
 }

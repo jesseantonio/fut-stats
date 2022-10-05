@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: `https://api-football-standings.azharimm.site`
+  baseUrl: `https://api-football-standings.azharimm.dev`
 };
 
 // /leagues/bra.1/standings?season=2018
