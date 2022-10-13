@@ -3,11 +3,11 @@ import { TeamsService } from 'src/app/core/services/teams.service';
 
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  selector: 'app-table',
+  templateUrl: './table.component.html',
+  styleUrls: ['./table.component.css']
 })
-export class CardComponent implements OnInit {
+export class TableComponent implements OnInit {
 
   public logos = []
   public teams = [];
@@ -18,6 +18,7 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
     this.getTeamStats();
     this.getTeamLogo();
+    debugger
   }
 
   public getTeamStats() {
@@ -27,7 +28,7 @@ export class CardComponent implements OnInit {
     })
   }
 
-  private getTeamLogo() {
+  public getTeamLogo() {
     this.teamsService.logoTime().subscribe((value: any) => {
       let logosTimes = value.data.map(standing => standing.logos["light"])
       this.logos = logosTimes

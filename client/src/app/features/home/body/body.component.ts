@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TeamsService } from 'src/app/core/services/teams.service';
 
 @Component({
@@ -7,18 +7,22 @@ import { TeamsService } from 'src/app/core/services/teams.service';
   styleUrls: ['./body.component.css'],
 })
 export class BodyComponent implements OnInit {
-  @Input()
-  logosTimes = [];
-  logos = [];
+  public logosTimes = [];
+  public logos = [];
 
-  constructor(private teamsService: TeamsService) {}
+  constructor(private teamsService: TeamsService) { }
 
   ngOnInit(): void {
-    this.teamsService.logoTime().subscribe((value: any) => {
-      let logosTimes = value.data.map((standing) => standing.logos['light']);
-      this.logos = logosTimes;
-      this.logos.pop();
-      this.logos.splice(12, 1)
-    });
+    this.getLogoTeams();
   }
+
+  public getLogoTeams() {
+    this.teamsService.logoTime().subscribe((value: any) => {
+        let logosTimes = value.data.map((standing) => standing.logos['light']);
+        this.logos = logosTimes;
+        this.logos.pop();
+        this.logos.splice(12, 1)
+      });
+  }
+
 }

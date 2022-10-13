@@ -18,12 +18,8 @@ export class TeamsService {
   constructor(private http: HttpClient) { }
 
   all(){
-    return this.http.get<Team>(`${this.baseUrl}/leagues/bra.1/standings?season=2022`)
-
-
-    // return this.http.get<Team>(this.baseUrl).pipe(map(((response: any) => {
-    //   return response.data.standings.find(standing => standing.team.id === '819').team
-    // })))
+    debugger
+    return this.http.get<Team>(`${this.baseUrl}/leagues/fra.1/standings?season=2022`)
   }
 
   getOne(id: number): Observable<Team> {

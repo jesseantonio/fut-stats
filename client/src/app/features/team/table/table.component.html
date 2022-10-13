@@ -9,8 +9,6 @@
     </tr>
 
     <tr *ngFor="let team of teams; let i = index">
-
-
       <td >
         {{ (i + 1) }}
         <img class="logo_time" [src]="team.logos[0].href" alt="">
@@ -25,11 +23,3 @@
     </tr>
   </table>
 </div>
-
-
-<!-- <div *ngFor="let logo of logos">
- <img [src]="logo" class="logo_time" alt="não foi possível colocar">
-  <p > {{logo}}</p>
-</div> -->
-
-
