@@ -7,7 +7,6 @@
         </p>
       </th>
     </tr>
-
     <tr *ngFor="let team of teams; let i = index">
       <td >
         {{ (i + 1) }}
@@ -16,10 +15,13 @@
         {{  team.displayName }}
 
       </td>
-      <td *ngFor="let stat of team.stats"><p>
-        {{ stat.value }}
-      </p></td>
-
+      <div *ngIf="formatTeamStats(team.stats) as formattedStats">
+        <td *ngFor="let stat of formattedStats">
+            <div>
+                {{ stat }}
+            </div>
+        </td>
+    </div>
     </tr>
   </table>
 </div>
