@@ -8,20 +8,16 @@
       </th>
     </tr>
     <tr *ngFor="let team of teams; let i = index">
-      <td >
+      <td>
         {{ (i + 1) }}
         <img class="logo_time" [src]="team.logos[0].href" alt="">
-
-        {{  team.displayName }}
-
+        {{ team.displayName }}
       </td>
-      <div *ngIf="formatTeamStats(team.stats) as formattedStats">
-        <td *ngFor="let stat of formattedStats">
-            <div>
-                {{ stat }}
-            </div>
-        </td>
-    </div>
+      <td *ngFor="let stat of formatTeamStats(team.stats)">
+        <p>
+          {{ stat.value }}
+        </p>
+      </td>
     </tr>
   </table>
 </div>

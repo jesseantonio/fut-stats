@@ -11,7 +11,7 @@ export class TableComponent implements OnInit {
 
   public logos = []
   public teams = [];
-  public headers = ['Clube', 'Vitórias', 'Derrotas', 'Empates', 'Jogos', 'Gols', 'Gols Sofridos', 'Pontos', 'Saldo de Gols'];
+  public headers = ['Clube', 'Pontos', 'Partidas Jogadas', 'Vitórias', 'Empates', 'Derrotas', 'Gols Marcados', 'Gols Sofridos', 'Saldo de Gols'];
   public stats: any;
 
   constructor(private teamsService: TeamsService) { }
@@ -39,7 +39,7 @@ export class TableComponent implements OnInit {
   public formatTeamStats(obj: any) {
     const [jogosJogados, derrotas, pontos, GC, GM, empates, vitorias, saldoDeGols] = obj;
     const newObjStats = {pontos, jogosJogados, vitorias, empates, derrotas, GM, GC, saldoDeGols}
-
-    return this.stats = newObjStats;
+    
+    return this.stats = Object.keys(newObjStats).map(function (key) { return newObjStats[key] });
   }
 }

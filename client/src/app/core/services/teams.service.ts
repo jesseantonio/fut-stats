@@ -19,7 +19,7 @@ export class TeamsService {
 
   all(){
     debugger
-    return this.http.get<Team>(`${this.baseUrl}/leagues/fra.1/standings?season=2022`)
+    return this.http.get<Team>(`${this.baseUrl}/leagues/bra.1/standings?season=2022`)
   }
 
   getOne(id: number): Observable<Team> {
