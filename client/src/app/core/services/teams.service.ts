@@ -14,12 +14,10 @@ export class TeamsService {
   private baseUrl = `${environment.baseUrl}`
 
 
-
   constructor(private http: HttpClient) { }
 
-  all(){
-    debugger
-    return this.http.get<Team>(`${this.baseUrl}/leagues/bra.1/standings?season=2022`)
+  all(league: any){
+    return this.http.get<Team>(`${this.baseUrl}/leagues/${league}.1/standings?season=2022`)
   }
 
   getOne(id: number): Observable<Team> {

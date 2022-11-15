@@ -11,8 +11,6 @@
   color: #0a3151;
 }
 
-
-
 .content {
   margin-top: 50px;
   margin-left: 100px;
@@ -61,8 +59,6 @@ section div p {
   font-weight: lighter;
 }
 
-section div {
-}
 .parent {
   display: grid;
   align-items: center;
@@ -85,6 +81,7 @@ section div {
   width: 170px;
   height: auto;
   margin-top: 3%;
+  cursor: pointer;
 }
 
 @media (min-width: 1024px) {

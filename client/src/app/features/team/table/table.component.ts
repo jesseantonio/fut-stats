@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TeamsService } from 'src/app/core/services/teams.service';
 
 
@@ -13,8 +14,11 @@ export class TableComponent implements OnInit {
   public teams = [];
   public headers = ['Clube', 'Pontos', 'Partidas Jogadas', 'Vitórias', 'Empates', 'Derrotas', 'Gols Marcados', 'Gols Sofridos', 'Saldo de Gols'];
   public stats: any;
+  public selectedLeague: any;
 
-  constructor(private teamsService: TeamsService) { }
+  constructor(private teamsService: TeamsService, private router: Router) {
+    this.selectedLeague = this.router.getCurrentNavigation();
+   }
 
   ngOnInit(): void {
     this.getTeamStats();
@@ -22,8 +26,7 @@ export class TableComponent implements OnInit {
   }
 
   public getTeamStats() {
-    debugger
-    this.teamsService.all().subscribe((value: any) => {
+    this.teamsService.all(this.selectedLeague.extras.state).subscribe((value: any) => {
       this.teams = value.data.standings.map(standing =>
         ({ ...standing.team, ...{ stats: standing.stats.filter(stat => !['All Splits', 'deductions', 'ppg', 'rankChange', 'rank'].includes(stat.name)).sort() } }))
     })
