@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', 'Verdana', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.gif {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.content .main-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+p {
+  font-size: 1.3rem;
+  padding: 0.7rem 0;
+}
+
+button {
+  padding: 1rem;
+  border-radius: 15px;
+  outline: none;
+  border: none;
+  background: #0046d4;
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+/* player-red */
+.ag-player-red {
+  display: inline-block;
+  height: 319px;
+  width: 413px;
+  margin: 0 0 0 50px;
+  background: url(https://raw.githubusercontent.com/SochavaAG/example-mycode/master/pens/animation-sprite/images/player-red.png) no-repeat scroll 0 0;
+
+  -webkit-animation: an-player-red 2s steps(50) infinite;
+  -moz-animation: an-player-red 2s steps(50) infinite;
+  -o-animation: an-player-red 2s steps(50) infinite;
+  animation: an-player-red 2s steps(50) infinite;
+}
+
+@-webkit-keyframes an-player-red {
+  to {
+    background-position-x: 100%;
+  }
+}
+@-moz-keyframes an-player-red {
+  to {
+    background-position-x: 100%;
+  }
+}
+@-o-keyframes an-player-red {
+  to {
+    background-position-x: 100%;
+  }
+}
+@keyframes an-player-red {
+  to {
+    background-position-x: 100%;
+  }
+}
+/* /player-red */
+
+/* player-green */
+.ag-player-green {
+  display: inline-block;
+  height: 319px;
+  width: 413px;
+  margin: 0 0 0 50px;
+  background: url(https://raw.githubusercontent.com/SochavaAG/example-mycode/master/pens/animation-sprite/images/player-green.png) no-repeat scroll 0 0;
+
+  -webkit-animation: an-player-green 2s steps(50) infinite;
+  -moz-animation: an-player-green 2s steps(50) infinite;
+  -o-animation: an-player-green 2s steps(50) infinite;
+  animation: an-player-green 2s steps(50) infinite;
+}
+
+@-webkit-keyframes an-player-green {
+  to {
+    background-position-x: 100%;
+  }
+}
+@-moz-keyframes an-player-green {
+  to {
+    background-position-x: 100%;
+  }
+}
+@-o-keyframes an-player-green {
+  to {
+    background-position-x: 100%;
+  }
+}
+@keyframes an-player-green {
+  to {
+    background-position-x: 100%;
+  }
+}
+/* /player-green */
+
+/* player-red-blue */
+.ag-player-red-blue {
+  display: inline-block;
+  height: 430px;
+  width: 400px;
+  margin: 0 0 0 50px;
+  background: url(https://raw.githubusercontent.com/SochavaAG/example-mycode/master/pens/animation-sprite/images/player-red-blue.png) no-repeat scroll 0 0;
+
+  -webkit-animation: an-player-red-blue 3s steps(80) infinite;
+  -moz-animation: an-player-red-blue 3s steps(80) infinite;
+  -o-animation: an-player-red-blue 3s steps(80) infinite;
+  animation: an-player-red-blue 3s steps(80) infinite;
+}
+
+@-webkit-keyframes an-player-red-blue {
+  to {
+    background-position-x: 100%;
+  }
+}
+@-moz-keyframes an-player-red-blue {
+  to {
+    background-position-x: 100%;
+  }
+}
+@-o-keyframes an-player-red-blue {
+  to {
+    background-position-x: 100%;
+  }
+}
+@keyframes an-player-red-blue {
+  to {
+    background-position-x: 100%;
+  }
+}
+/* /player-red-blue */
+
+/* player-green-black */
+.ag-player-green-black {
+  display: inline-block;
+  height: 430px;
+  width: 400px;
+  margin: 0 0 0 50px;
+  background: url(https://raw.githubusercontent.com/SochavaAG/example-mycode/master/pens/animation-sprite/images/player-green-black.png) no-repeat scroll 0 0;
+
+  -webkit-animation: an-player-green-black 3s steps(80) infinite;
+  -moz-animation: an-player-green-black 3s steps(80) infinite;
+  -o-animation: an-player-green-black 3s steps(80) infinite;
+  animation: an-player-green-black 3s steps(80) infinite;
+}
+
+@-webkit-keyframes an-player-green-black {
+  to {
+    background-position-x: 100%;
+  }
+}
+@-moz-keyframes an-player-green-black {
+  to {
+    background-position-x: 100%;
+  }
+}
+@-o-keyframes an-player-green-black {
+  to {
+    background-position-x: 100%;
+  }
+}
+@keyframes an-player-green-black {
+  to {
+    background-position-x: 100%;
+  }
+}
+/* /player-green-black */

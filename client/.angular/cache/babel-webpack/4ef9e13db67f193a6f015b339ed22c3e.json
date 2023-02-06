@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { __decorate } from \"tslib\";\nimport { Component } from '@angular/core';\nlet CardComponent = class CardComponent {\n  constructor() {}\n\n  ngOnInit() {}\n\n};\nCardComponent = __decorate([Component({\n  selector: 'app-card'\n})], CardComponent);\nexport { CardComponent };","map":null,"metadata":{},"sourceType":"module"}

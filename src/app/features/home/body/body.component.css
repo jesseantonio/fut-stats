@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", "Verdana", sans-serif;
+}
+
+.title {
+  font-family: "Poppins", "Verdana", sans-serif;
+  font-size: 48px;
+  color: #0a3151;
+}
+
+.content {
+  margin-top: 50px;
+  margin-left: 100px;
+}
+
+.img-responsive {
+  width: 500px;
+  height: auto;
+  position: relative;
+  left: 50%;
+}
+.buttons {
+  margin-top: 50px;
+  margin-left: 150px;
+  padding-left: 10px;
+}
+button {
+  cursor: pointer;
+  width: 120px;
+  height: 30px;
+  background-color: #0a3151;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  margin-left: 10px;
+}
+section {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  background-color: #0a3151;
+}
+section div h1,
+p {
+  color: #fff;
+  font-family: "Poppins", "Verdana", sans-serif;
+}
+
+section div h1 {
+  font-size: 36px;
+  text-align: center;
+}
+
+section div p {
+  text-align: center;
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+.parent {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.title-2 {
+  font-family: "Poppins", "Verdana", sans-serif;
+  font-size: 48px;
+  color: #0a3151;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.box {
+  border: 3.5px solid #0a3151;
+  width: 170px;
+  height: auto;
+  margin-top: 3%;
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  .parent {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 50px));
+    margin-left: 5vh;
+    margin-right: 5vh;
+  }
+}
