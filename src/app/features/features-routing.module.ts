@@ -11,7 +11,7 @@ const routes: Routes = [
     {
       path: 'home',
       loadChildren: async () =>
-        import('./home/home.module').then((m) => m.HomeModule),
+        import('../layout/layout.module').then((m) => m.LayoutModule),
     },
 
     {
