@@ -5,9 +5,10 @@ import { ViewComponent } from './view/view.component';
 import { TeamRoutingModule } from './team-routing.module';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
+import { DropdownComponent } from './dropdown/dropdown.component';
 
 @NgModule({
-  declarations: [TableComponent, ViewComponent],
+  declarations: [TableComponent, ViewComponent, DropdownComponent],
   imports: [
     CommonModule,
     TeamRoutingModule,

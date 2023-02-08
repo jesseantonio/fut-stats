@@ -17,7 +17,7 @@ export class TeamsService {
   constructor(private http: HttpClient) { }
 
   all(league: any){
-    return this.http.get<Team>(`${this.baseUrl}/leagues/${league}.1/standings?season=2022`)
+    return this.http.get<Team>(`${this.baseUrl}/leagues/${league}.1/standings?season=2013`)
   }
 
   getOne(id: number): Observable<Team> {

@@ -18,7 +18,7 @@ export class TableComponent implements OnInit {
 
   constructor(private teamsService: TeamsService, private router: Router) {
     this.selectedLeague = this.router.getCurrentNavigation();
-   }
+  }
 
   ngOnInit(): void {
     this.getTeamStats();
@@ -41,7 +41,7 @@ export class TableComponent implements OnInit {
 
   public formatTeamStats(obj: any) {
     const [jogosJogados, derrotas, pontos, GC, GM, empates, vitorias, saldoDeGols] = obj;
-    const newObjStats = {pontos, jogosJogados, vitorias, empates, derrotas, GM, GC, saldoDeGols}
+    const newObjStats = { pontos, jogosJogados, vitorias, empates, derrotas, GM, GC, saldoDeGols }
 
     return this.stats = Object.keys(newObjStats).map(function (key) { return newObjStats[key] });
   }
