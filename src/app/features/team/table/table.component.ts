@@ -6,7 +6,7 @@ import { TeamsService } from 'src/app/core/services/teams.service';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
 
@@ -42,7 +42,7 @@ export class TableComponent implements OnInit {
   public formatTeamStats(obj: any) {
     const [jogosJogados, derrotas, pontos, GC, GM, empates, vitorias, saldoDeGols] = obj;
     const newObjStats = {pontos, jogosJogados, vitorias, empates, derrotas, GM, GC, saldoDeGols}
-    
+
     return this.stats = Object.keys(newObjStats).map(function (key) { return newObjStats[key] });
   }
 }

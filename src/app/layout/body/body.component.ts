@@ -5,7 +5,7 @@ import { TeamsService } from 'src/app/core/services/teams.service';
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
-  styleUrls: ['./body.component.css'],
+  styleUrls: ['./body.component.scss'],
 })
 export class BodyComponent implements OnInit {
   public logosTimes = [];
