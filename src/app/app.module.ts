@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import { FeaturesModule } from './features/features.module';
 import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterModule } from './shared/components/footer/footer.module';
+import { HeaderModule } from './shared/components/header/header.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RouterModule.forRoot([]),
     FeaturesModule,
     CoreModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FooterModule,
+    HeaderModule
 
   ],
   providers: [],
