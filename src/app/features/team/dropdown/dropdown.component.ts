@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-dropdown',
@@ -42,15 +42,16 @@ export class DropdownComponent implements OnInit {
     }
   ]
 
-  public selectedSeason: string;
 
   constructor() { }
+
+  @Output() selectedSeason = new EventEmitter<string>();
 
   ngOnInit(): void {
   }
 
   public onSelected(value: string) {
-    this.selectedSeason = value;
+    this.selectedSeason.emit(value);
   }
 
 }

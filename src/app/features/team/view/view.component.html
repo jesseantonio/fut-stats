@@ -1,4 +1,4 @@
 <app-header></app-header>
-<app-dropdown></app-dropdown>
-<app-table></app-table>
+<app-dropdown (selectedSeason)="captureSeason($event)"></app-dropdown>
+<app-table [season]="season"></app-table>
 <app-footer></app-footer>

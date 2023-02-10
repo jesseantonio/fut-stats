@@ -8,10 +8,14 @@ import { TeamsService } from 'src/app/core/services/teams.service';
 })
 export class ViewComponent implements OnInit {
 
-  constructor(private teamsService: TeamsService) {}
+  public season: string;
+
+  constructor(private teamsService: TeamsService) { }
 
   ngOnInit(): void {
 
   }
-
+  public captureSeason(event: string) {
+    this.season = event;
+  }
 }
