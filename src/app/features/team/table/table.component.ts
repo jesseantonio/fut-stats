@@ -1,7 +1,9 @@
 import { Input } from '@angular/core';
 import { AfterViewChecked } from '@angular/core';
+import { AfterContentChecked } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { finalize, Observable, Subject } from 'rxjs';
 import { TeamsService } from 'src/app/core/services/teams.service';
 
 
@@ -10,7 +12,7 @@ import { TeamsService } from 'src/app/core/services/teams.service';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements OnInit, AfterViewChecked {
+export class TableComponent implements OnInit, AfterViewChecked, AfterContentChecked {
 
   public logos = []
   public teams = [];
@@ -23,7 +25,7 @@ export class TableComponent implements OnInit, AfterViewChecked {
     this.selectedLeague = this.router.getCurrentNavigation();
   }
 
-  @Input() season: string;
+  @Input() season: Observable<string>;
 
   ngOnInit(): void {
     this.buildTable();
@@ -32,21 +34,24 @@ export class TableComponent implements OnInit, AfterViewChecked {
 
   ngAfterViewChecked(): void {
     if (this.season != null) {
-      console.log(this.season)
       this.getTeamStats(this.selectedLeague.extras.state, this.season);
     }
   }
 
+  ngAfterContentChecked(): void {
+    if (this.season != null) {
+    }
+  }
+
   public buildTable() {
-    console.log(this.selectedLeague.extras.state)
-    console.log(this.ACTUAL_SEASON)
     this.getTeamStats(this.selectedLeague.extras.state, this.ACTUAL_SEASON);
   }
 
   public getTeamStats(league: string, season: any) {
     this.teamsService.all(league, season).subscribe((value: any) => {
       this.teams = value.data.standings.map((standing: { team: any; stats: any[]; }) => ({ ...standing.team, ...{ stats: standing.stats.filter(stat => !['All Splits', 'deductions', 'ppg', 'rankChange', 'rank'].includes(stat.name)).sort() } }));
-    });
+      this.season = null;
+    })
   }
 
   public getTeamLogo() {

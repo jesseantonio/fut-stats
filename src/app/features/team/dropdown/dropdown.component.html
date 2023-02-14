@@ -1,8 +1,7 @@
-<select #seasonsDropdown (change)="onSelected(seasonsDropdown.value)">
+<select #seasonsDropdown (change)="onSelected($event)">
    <option *ngFor="let season of seasons"
-            [value]="season.year">
-     {{season.year}}
+            [value]="season">
+     {{season}}
    </option>
 </select>
 <hr />
-Key is: {{seasonsDropdown.value}}

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-dropdown',
@@ -7,51 +8,18 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class DropdownComponent implements OnInit {
 
-  public seasons = [
-    {
-      id: 1,
-      year: "2013"
-    },
-    {
-      id: 2,
-      year: "2014"
-    },
-    {
-      id: 3,
-      year: "2015"
-    },
-    {
-      id: 4,
-      year: "2016"
-    },
-    {
-      id: 5,
-      year: "2017"
-    },
-    {
-      id: 6,
-      year: "2018"
-    },
-    {
-      id: 8,
-      year: "2019"
-    },
-    {
-      id: 9,
-      year: "2020"
-    }
-  ]
+  public seasons = ["2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022"]
 
 
   constructor() { }
 
-  @Output() selectedSeason = new EventEmitter<string>();
+  @Output() selectedSeason: Subject<string> = new Subject<string>();
 
   ngOnInit(): void {
   }
 
-  public onSelected(value: string) {
-    this.selectedSeason.emit(value);
+  public onSelected(e) {
+    this.selectedSeason.next(e.target.value);
   }
 
 }
