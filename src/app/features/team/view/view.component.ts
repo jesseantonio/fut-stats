@@ -16,7 +16,6 @@ export class ViewComponent implements OnInit {
 
   }
   public captureSeason(event: string) {
-    console.log(event)
     this.season = event;
   }
 }
