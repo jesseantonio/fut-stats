@@ -12,7 +12,7 @@ import { TeamsService } from 'src/app/core/services/teams.service';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements OnInit, AfterViewChecked, AfterContentChecked {
+export class TableComponent implements OnInit, AfterViewChecked {
 
   public logos = []
   public teams = [];
@@ -32,31 +32,27 @@ export class TableComponent implements OnInit, AfterViewChecked, AfterContentChe
   ngOnInit(): void {
     this.buildTable();
     this.getTeamLogo();
-    console.log(this.table)
-    console.log(this.selectedLeague)
   }
 
   ngAfterViewChecked(): void {
     if (this.season != null) {
-      this.getTeamStats(this.selectedLeague.extras.state, this.season);
+      this.getTeamStats(this.selectedLeague.extras.state[0], this.season);
     }
-  }
-
-  ngAfterContentChecked(): void {
-    if (this.season != null) {
+    if(this.table != null) {
+      this.setRelegatedPositions();
     }
   }
 
   public buildTable() {
-    this.getTeamStats(this.selectedLeague.extras.state, this.ACTUAL_SEASON);
+    this.getTeamStats(this.selectedLeague.extras.state[0], this.ACTUAL_SEASON);
   }
 
   public getTeamStats(league: string, season: any) {
     this.teamsService.all(league, season).subscribe((value: any) => {
       this.teams = value.data.standings.map((standing: { team: any; stats: any[]; }) => ({ ...standing.team, ...{ stats: standing.stats.filter(stat => !['All Splits', 'deductions', 'ppg', 'rankChange', 'rank'].includes(stat.name)).sort() } }));
       this.season = null;
-      console.log(this.table)
     })
+    this.setRelegatedPositions();
   }
 
   public getTeamLogo() {
@@ -74,15 +70,11 @@ export class TableComponent implements OnInit, AfterViewChecked, AfterContentChe
     return this.stats = Object.keys(newObjStats).map(function (key) { return newObjStats[key] });
   }
 
-  public teste() {
-    this.styleRowTable(this.table.nativeElement.children[28]);
-  }
-
-  public setRelegatedPositionsInTable() {
-    if (this.selectedLeague.extras.state === "arg") {
-
-    } else if(this.selectedLeague.extras.state === "aus") {
-
+  public setRelegatedPositions() {
+    if (this.selectedLeague.extras.state[1] != null) {
+      this.selectedLeague.extras.state[1].forEach((position: number) => {
+        this.styleRowTable(this.table.nativeElement.children[position]);
+      });
     }
   }
 

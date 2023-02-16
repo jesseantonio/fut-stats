@@ -31,7 +31,7 @@ export class BodyComponent implements OnInit {
   public onClickOnTeam(index: any) {
     this.onChooseLeague(index);
     this.router.navigateByUrl('/teams', {
-      state: [this.league, 1]
+      state: [this.league, this.relegatedTeamsAmount]
     })
   }
 
@@ -83,27 +83,35 @@ export class BodyComponent implements OnInit {
         break;
       case 11:
         this.league = 'mex';
+        this.relegatedTeamsAmount = null;
         break;
       case 12:
         this.league = 'por';
+        this.relegatedTeamsAmount = [17, 18]
         break;
       case 13:
         this.league = 'rus';
+        this.relegatedTeamsAmount = [15, 16]
         break;
       case 14:
         this.league = 'sgp';
+        this.relegatedTeamsAmount = null;
         break;
       case 15:
         this.league = 'esp';
+        this.relegatedTeamsAmount = [18, 19, 20]
         break;
       case 16:
         this.league = 'tha';
+        this.relegatedTeamsAmount = null;
         break;
       case 17:
         this.league = 'tur';
+        this.relegatedTeamsAmount = [16, 17, 18, 19];
         break;
       default:
         this.league = 'bra'
+        this.relegatedTeamsAmount = [17, 18, 19, 20];
         break;
     }
   }
