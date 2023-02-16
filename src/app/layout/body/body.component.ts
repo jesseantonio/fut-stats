@@ -10,7 +10,8 @@ import { TeamsService } from 'src/app/core/services/teams.service';
 export class BodyComponent implements OnInit {
   public logosTimes = [];
   public logos = [];
-  public league: any;
+  public league: string;
+  public relegatedTeamsAmount: number[];
 
   constructor(private teamsService: TeamsService, private router: Router) {}
 
@@ -30,7 +31,7 @@ export class BodyComponent implements OnInit {
   public onClickOnTeam(index: any) {
     this.onChooseLeague(index);
     this.router.navigateByUrl('/teams', {
-      state: this.league
+      state: [this.league, 1]
     })
   }
 
@@ -38,36 +39,47 @@ export class BodyComponent implements OnInit {
     switch (index) {
       case 0:
         this.league = 'arg';
+        this.relegatedTeamsAmount = null;
         break;
       case 1:
         this.league = 'aus';
+        this.relegatedTeamsAmount = null;
         break;
       case 2:
         this.league = 'bra';
+        this.relegatedTeamsAmount = [17, 18, 19, 20];
         break;
       case 3:
         this.league = 'chn';
+        this.relegatedTeamsAmount = [16, 17, 18]
         break;
       case 4:
         this.league = 'ned';
+        this.relegatedTeamsAmount = [17, 18]
         break;
       case 5:
         this.league = 'eng';
+        this.relegatedTeamsAmount = [18, 19, 20]
         break;
       case 6:
         this.league = 'fra';
+        this.relegatedTeamsAmount = [17, 18, 19, 20];
         break;
       case 7:
         this.league = 'ger';
+        this.relegatedTeamsAmount = [17, 18]
         break;
       case 8:
         this.league = 'idn';
+        this.relegatedTeamsAmount = [16, 17, 18]
         break;
       case 9:
         this.league = 'ita';
+        this.relegatedTeamsAmount = [18, 19, 20]
         break;
       case 10:
         this.league = 'jpn';
+        this.relegatedTeamsAmount = [18]
         break;
       case 11:
         this.league = 'mex';
