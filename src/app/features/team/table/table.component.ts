@@ -1,9 +1,6 @@
-import { ElementRef, Input, ViewChild } from '@angular/core';
-import { AfterViewChecked } from '@angular/core';
-import { AfterContentChecked } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { finalize, Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { TeamsService } from 'src/app/core/services/teams.service';
 
 
@@ -40,6 +37,7 @@ export class TableComponent implements OnInit, AfterViewChecked {
     }
     if(this.table != null) {
       this.setRelegatedPositions();
+      console.log(this.table)
     }
   }
 
@@ -73,14 +71,15 @@ export class TableComponent implements OnInit, AfterViewChecked {
   public setRelegatedPositions() {
     if (this.selectedLeague.extras.state[1] != null) {
       this.selectedLeague.extras.state[1].forEach((position: number) => {
-        this.styleRowTable(this.table.nativeElement.children[position]);
+        this.styleRowTable(this.table.nativeElement.children[position], this.table.nativeElement.lastElementChild);
       });
     }
   }
 
-  public styleRowTable(row: any) {
+  public styleRowTable(row: any, lastRow: any) {
     row.style.backgroundImage = "url('https://agrometeorologia.seagro.to.gov.br/wp-content/uploads/2019/09/tela-vermelha.png')";
     row.style.backgroundRepeat = "no-repeat"
-    row.style.backgroundSize = "5px 100px"
+    row.style.backgroundSize = "2.5px 98%"
+    lastRow.style.backgroundSize = "2.5px 100%";
   }
 }

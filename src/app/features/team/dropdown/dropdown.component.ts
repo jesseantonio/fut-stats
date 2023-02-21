@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -17,7 +17,7 @@ export class DropdownComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+    
   public onSelected(e) {
     this.selectedSeason.next(e.target.value);
   }
