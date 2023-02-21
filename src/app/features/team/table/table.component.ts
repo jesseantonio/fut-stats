@@ -1,6 +1,7 @@
 import { AfterViewChecked, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { League } from 'src/app/core/entities/league';
 import { TeamsService } from 'src/app/core/services/teams.service';
 
 
@@ -19,7 +20,7 @@ export class TableComponent implements OnInit, AfterViewChecked {
   public ACTUAL_SEASON = 2022;
 
   constructor(private teamsService: TeamsService, private router: Router) {
-    this.selectedLeague = this.router.getCurrentNavigation();
+    this.selectedLeague = this.router.getCurrentNavigation().extras.state;
   }
 
   @ViewChild('table', {static: false}) table: ElementRef;
@@ -33,7 +34,7 @@ export class TableComponent implements OnInit, AfterViewChecked {
 
   ngAfterViewChecked(): void {
     if (this.season != null) {
-      this.getTeamStats(this.selectedLeague.extras.state[0], this.season);
+      this.getTeamStats(this.selectedLeague.name, this.season);
     }
     if(this.table != null) {
       this.setRelegatedPositions();

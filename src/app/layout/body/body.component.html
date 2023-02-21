@@ -23,6 +23,11 @@
 <h1 class="title-2">Nossas Ligas</h1>
 <article class="parent">
   <div class="" *ngFor="let logo of logos; let i = index" [attr.data-index]="i">
-    <img (click)="onClickOnTeam(i)" class="box" [src]="logo" alt="">
+    <div *ngIf="!loading; else loadingState">
+      <img (click)="onClickOnTeam(i)" class="box" [src]="logo" alt="">
+    </div>
+    <ng-template #loadingState>
+      <div (click)="onClickOnTeam(i)" class="box loader" alt=""></div>
+    </ng-template>
   </div>
 </article>
