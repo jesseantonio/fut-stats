@@ -35,6 +35,7 @@ export class BodyComponent implements OnInit {
   }
 
   public onClickOnTeam(index: any) {
+    console.log(index)
     this.onChooseLeague(index);
     this.router.navigateByUrl('/teams', {
       state: [this.league]
@@ -44,7 +45,7 @@ export class BodyComponent implements OnInit {
   public onChooseLeague(index: number) {
     switch (index) {
       case 0:
-        this.league.name = 'arg';
+        this.league.name = "arg";
         this.league.continental.continentalFirstDivision.amount = [1];
         this.league.continental.continentalFirstDivision.name = "Fase de grupos da Copa Libertadores";
         break;
@@ -117,6 +118,12 @@ export class BodyComponent implements OnInit {
         break;
       case 9:
         this.league.name = 'ita';
+        this.league.continental.continentalFirstDivision.amount = [1, 2, 3, 4];
+        this.league.continental.continentalFirstDivision.name = "Fase de grupos da Liga dos Campeões"
+        this.league.continental.continentalSecondDivision.amount = [5];
+        this.league.continental.continentalSecondDivision.name = "Fase de grupos da Liga Europa"
+        this.league.continental.continentalThirdDivision.amount = [6];
+        this.league.continental.continentalThirdDivision.name = "Qualificatórias da Liga Conferência"
         this.league.relegated.amount = [18, 19, 20]
         break;
       case 10:
@@ -140,6 +147,12 @@ export class BodyComponent implements OnInit {
         break;
       case 15:
         this.league.name = 'esp';
+        this.league.continental.continentalFirstDivision.amount = [1, 2, 3, 4];
+        this.league.continental.continentalFirstDivision.name = "Fase de grupos da Liga dos Campeões"
+        this.league.continental.continentalSecondDivision.amount = [5];
+        this.league.continental.continentalSecondDivision.name = "Fase de grupos da Liga Europa"
+        this.league.continental.continentalThirdDivision.amount = [6];
+        this.league.continental.continentalThirdDivision.name = "Qualificatórias da Liga Conferência"
         this.league.relegated.amount = [18, 19, 20]
         break;
       case 16:
@@ -147,10 +160,20 @@ export class BodyComponent implements OnInit {
         break;
       case 17:
         this.league.name = 'tur';
+        this.league.continental.continentalFirstDivision.amount = [1];
+        this.league.continental.continentalFirstDivision.name = "Fase de grupos da Liga dos Campeões"
+        this.league.continental.continentalThirdDivision.amount = [2, 3];
+        this.league.continental.continentalThirdDivision.name = "Qualificatórias da Liga Conferência"
         this.league.relegated.amount = [16, 17, 18, 19];
         break;
       default:
-        this.league.name = 'bra'
+        this.league.name = 'bra';
+        this.league.continental.continentalFirstDivision.amount = [1, 2, 3, 4, 5, 6];
+        this.league.continental.continentalFirstDivision.name = "Fase de grupos da Copa Libertadores";
+        this.league.continental.continentalSecondDivision.amount = [9, 10, 11, 12, 14];
+        this.league.continental.continentalSecondDivision.name = "Fase de grupos da Copa Sul-Americana";
+        this.league.continental.continentalQualyfiers.amount = [7, 8];
+        this.league.continental.continentalQualyfiers.name = "Qualificatórias da Copa Libertadores"
         this.league.relegated.amount = [17, 18, 19, 20];
         break;
     }
