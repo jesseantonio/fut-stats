@@ -17,7 +17,7 @@ export interface League {
             amount: number[],
             name: string,
         },
-        continentalQualyfiers?: {
+        continentalQualifiers?: {
             amount: number[],
             name: string,
         }

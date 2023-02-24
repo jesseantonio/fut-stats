@@ -1,7 +1,7 @@
 import { AfterViewChecked, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { League } from 'src/app/core/entities/league';
+import { LegendType } from 'src/app/core/enums/legendType';
 import { TeamsService } from 'src/app/core/services/teams.service';
 
 
@@ -20,10 +20,10 @@ export class TableComponent implements OnInit, AfterViewChecked {
   public ACTUAL_SEASON = 2022;
 
   constructor(private teamsService: TeamsService, private router: Router) {
-    this.selectedLeague = this.router.getCurrentNavigation().extras.state;
+    this.selectedLeague = this.router.getCurrentNavigation().extras.state[0];
   }
 
-  @ViewChild('table', {static: false}) table: ElementRef;
+  @ViewChild('table', { static: false }) table: ElementRef;
 
   @Input() season: Observable<string>;
 
@@ -36,14 +36,17 @@ export class TableComponent implements OnInit, AfterViewChecked {
     if (this.season != null) {
       this.getTeamStats(this.selectedLeague.name, this.season);
     }
-    if(this.table != null) {
+    if (this.table != null) {
       this.setRelegatedPositions();
-      console.log(this.table)
+      this.setContinentalFirstDivisionPositions();
+      this.setContinentalSecondDivisionPositions();
+      this.setContinentalQualifiersPositions();
     }
   }
 
   public buildTable() {
-    this.getTeamStats(this.selectedLeague.extras.state[0], this.ACTUAL_SEASON);
+    console.log(this.selectedLeague)
+    this.getTeamStats(this.selectedLeague.name, this.ACTUAL_SEASON);
   }
 
   public getTeamStats(league: string, season: any) {
@@ -51,7 +54,10 @@ export class TableComponent implements OnInit, AfterViewChecked {
       this.teams = value.data.standings.map((standing: { team: any; stats: any[]; }) => ({ ...standing.team, ...{ stats: standing.stats.filter(stat => !['All Splits', 'deductions', 'ppg', 'rankChange', 'rank'].includes(stat.name)).sort() } }));
       this.season = null;
     })
-    this.setRelegatedPositions();
+    // this.setRelegatedPositions();
+    // this.setContinentalFirstDivisionPositions();
+    // this.setContinentalSecondDivisionPositions();
+    // this.setcontinentalQualifiersPositions();
   }
 
   public getTeamLogo() {
@@ -70,15 +76,49 @@ export class TableComponent implements OnInit, AfterViewChecked {
   }
 
   public setRelegatedPositions() {
-    if (this.selectedLeague.extras.state[1] != null) {
-      this.selectedLeague.extras.state[1].forEach((position: number) => {
-        this.styleRowTable(this.table.nativeElement.children[position], this.table.nativeElement.lastElementChild);
+    if (this.selectedLeague.relegated != null) {
+      this.selectedLeague.relegated.amount.forEach((position: number) => {
+        this.styleRowTable(this.table.nativeElement.children[position], this.table.nativeElement.lastElementChild, LegendType.Relegated);
       });
     }
   }
 
-  public styleRowTable(row: any, lastRow: any) {
-    row.style.backgroundImage = "url('https://agrometeorologia.seagro.to.gov.br/wp-content/uploads/2019/09/tela-vermelha.png')";
+  public setContinentalFirstDivisionPositions() {
+    if (this.selectedLeague.continental.continentalFirstDivision != null) {
+      this.selectedLeague.continental.continentalFirstDivision.amount.forEach((position: number) => {
+        this.styleRowTable(this.table.nativeElement.children[position], this.table.nativeElement.lastElementChild, LegendType.ContinentalFirstDivision);
+      });
+    }
+  }
+  public setContinentalQualifiersPositions() {
+    if (this.selectedLeague.continental.continentalQualifiers != null) {
+      this.selectedLeague.continental.continentalQualifiers.amount.forEach((position: number) => {
+        this.styleRowTable(this.table.nativeElement.children[position], this.table.nativeElement.lastElementChild, LegendType.ContinentalQualifiers);
+      });
+    }
+  }
+
+  public setContinentalSecondDivisionPositions() {
+    if (this.selectedLeague.continental.continentalSecondDivision != null) {
+      this.selectedLeague.continental.continentalSecondDivision.amount.forEach((position: number) => {
+        this.styleRowTable(this.table.nativeElement.children[position], this.table.nativeElement.lastElementChild, LegendType.ContinentalSecondDivision);
+      });
+    }
+  }
+
+  public styleRowTable(row: any, lastRow: any, type: LegendType) {
+    if (type === LegendType.Relegated) {
+      row.style.backgroundImage = "url('https://www.colorhexa.com/EA4335.png')";
+    } else if (type === LegendType.ContinentalFirstDivision) {
+      row.style.backgroundImage = "url('https://www.colorhexa.com/4285f4.png')";
+    } else if (type === LegendType.ContinentalQualifiers) {
+      row.style.backgroundImage = "url('https://www.colorhexa.com/fa7b17.png')";
+    } else if (type === LegendType.ContinentalSecondDivision) {
+      row.style.backgroundImage = "url('https://www.colorhexa.com/34A853.png')";
+    } else if(type === LegendType.ContinentalThirdDivision) {
+
+    }
+
     row.style.backgroundRepeat = "no-repeat"
     row.style.backgroundSize = "2.5px 98%"
     lastRow.style.backgroundSize = "2.5px 100%";
