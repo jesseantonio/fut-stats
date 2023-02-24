@@ -37,10 +37,7 @@ export class TableComponent implements OnInit, AfterViewChecked {
       this.getTeamStats(this.selectedLeague.name, this.season);
     }
     if (this.table != null) {
-      this.setRelegatedPositions();
-      this.setContinentalFirstDivisionPositions();
-      this.setContinentalSecondDivisionPositions();
-      this.setContinentalQualifiersPositions();
+      this.setColorPositionInRow();
     }
   }
 
@@ -54,10 +51,6 @@ export class TableComponent implements OnInit, AfterViewChecked {
       this.teams = value.data.standings.map((standing: { team: any; stats: any[]; }) => ({ ...standing.team, ...{ stats: standing.stats.filter(stat => !['All Splits', 'deductions', 'ppg', 'rankChange', 'rank'].includes(stat.name)).sort() } }));
       this.season = null;
     })
-    // this.setRelegatedPositions();
-    // this.setContinentalFirstDivisionPositions();
-    // this.setContinentalSecondDivisionPositions();
-    // this.setcontinentalQualifiersPositions();
   }
 
   public getTeamLogo() {
@@ -79,6 +72,14 @@ export class TableComponent implements OnInit, AfterViewChecked {
     if (this.selectedLeague.relegated != null) {
       this.selectedLeague.relegated.amount.forEach((position: number) => {
         this.styleRowTable(this.table.nativeElement.children[position], this.table.nativeElement.lastElementChild, LegendType.Relegated);
+      });
+    }
+  }
+
+  public setRelegatedQualifierPositions() {
+    if (this.selectedLeague.relegated.qualifiersAmount != null) {
+      this.selectedLeague.relegated.qualifiersAmount.forEach((position: number) => {
+        this.styleRowTable(this.table.nativeElement.children[position], this.table.nativeElement.lastElementChild, LegendType.RelegatedQualifiers);
       });
     }
   }
@@ -106,6 +107,14 @@ export class TableComponent implements OnInit, AfterViewChecked {
     }
   }
 
+  public setContinentalThirdDivisionPositions() {
+    if (this.selectedLeague.continental.continentalThirdDivision != null) {
+      this.selectedLeague.continental.continentalThirdDivision.amount.forEach((position: number) => {
+        this.styleRowTable(this.table.nativeElement.children[position], this.table.nativeElement.lastElementChild, LegendType.ContinentalThirdDivision);
+      });
+    }
+  }
+
   public styleRowTable(row: any, lastRow: any, type: LegendType) {
     if (type === LegendType.Relegated) {
       row.style.backgroundImage = "url('https://www.colorhexa.com/EA4335.png')";
@@ -115,12 +124,23 @@ export class TableComponent implements OnInit, AfterViewChecked {
       row.style.backgroundImage = "url('https://www.colorhexa.com/fa7b17.png')";
     } else if (type === LegendType.ContinentalSecondDivision) {
       row.style.backgroundImage = "url('https://www.colorhexa.com/34A853.png')";
-    } else if(type === LegendType.ContinentalThirdDivision) {
-
+    } else if (type === LegendType.ContinentalThirdDivision) {
+      row.style.backgroundImage = "url('https://www.colorhexa.com/24C1E0.png')";
+    } else {
+      row.style.backgroundImage = "url('https://www.colorhexa.com/FBBC04.png')";
     }
 
     row.style.backgroundRepeat = "no-repeat"
     row.style.backgroundSize = "2.5px 98%"
     lastRow.style.backgroundSize = "2.5px 100%";
+  }
+
+  private setColorPositionInRow() {
+    this.setRelegatedPositions();
+    this.setRelegatedQualifierPositions();
+    this.setContinentalFirstDivisionPositions();
+    this.setContinentalSecondDivisionPositions();
+    this.setContinentalQualifiersPositions();
+    this.setContinentalThirdDivisionPositions();
   }
 }

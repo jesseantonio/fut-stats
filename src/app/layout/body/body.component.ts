@@ -104,7 +104,8 @@ export class BodyComponent implements OnInit {
         this.league = {
           name: "ned",
           relegated: {
-            amount: [17, 18]
+            amount: [17, 18],
+            qualifiersAmount: [16]
           },
           continental: {
             continentalFirstDivision: {
@@ -149,7 +150,7 @@ export class BodyComponent implements OnInit {
           continental: {
             continentalFirstDivision: {
               amount: [1, 2],
-              name: "Fase de grupos da Liga Europa"
+              name: "Fase de grupos da Liga dos Campeões"
             },
             continentalQualifiers: {
               amount: [3],
@@ -157,6 +158,10 @@ export class BodyComponent implements OnInit {
             },
             continentalSecondDivision: {
               amount: [4],
+              name: "Fase de grupos da Liga Europa"
+            },
+            continentalThirdDivision: {
+              amount: [5],
               name: "Qualificatórias da Liga Conferência"
             },
           }
@@ -170,7 +175,7 @@ export class BodyComponent implements OnInit {
         this.league.continental.continentalSecondDivision.name = "Fase de grupos da Liga Europa"
         this.league.continental.continentalThirdDivision.amount = [6];
         this.league.continental.continentalThirdDivision.name = "Qualificatórias da Liga Conferência"
-        this.league.relegated.qualifyersAmount = [16]
+        //this.league.relegated.qualifiersAmount = [16]
         this.league.relegated.amount = [17, 18]
         break;
       case 8:

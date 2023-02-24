@@ -2,7 +2,7 @@ export interface League {
     name: string,
     relegated?: {
         amount?: number[],
-        qualifyersAmount?: number[]
+        qualifiersAmount?: number[]
     },
     continental?: {
         continentalFirstDivision?: {
