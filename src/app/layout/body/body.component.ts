@@ -322,7 +322,7 @@ export class BodyComponent implements OnInit {
               name: "Fase de grupos da Liga Europa"
             },
             continentalThirdDivision: {
-              amount: [5],
+              amount: [6],
               name: "Fase de grupos da Liga Conferência"
             }
           }

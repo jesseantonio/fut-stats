@@ -76,6 +76,15 @@ th:nth-child(9n + 1) {
   margin-right: 450px;
 }
 
+.info {
+  display: flex;
+}
+
+.logo {
+  margin-right: 12px;
+  margin-left: 12px;
+}
+
 @media only screen and (min-width: 768px) {
   table {
     max-width: 1200px;
