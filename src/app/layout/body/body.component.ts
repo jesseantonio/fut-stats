@@ -26,7 +26,6 @@ export class BodyComponent implements OnInit {
       finalize(() => {
         this.loading = false;
       })).subscribe((value: any) => {
-        console.log(this.loading)
         let logosTimes = value.data.map((standing) => standing.logos['light']);
         this.logos = logosTimes;
         this.logos.pop();
@@ -35,10 +34,7 @@ export class BodyComponent implements OnInit {
   }
 
   public onClickOnTeam(index: any) {
-    console.log(index)
-    debugger
     this.onChooseLeague(index);
-    console.log(this.league)
     this.router.navigateByUrl('/teams', {
       state: [this.league]
     })
@@ -168,79 +164,214 @@ export class BodyComponent implements OnInit {
         }
         break;
       case 7:
-        this.league.name = 'ger';
-        this.league.continental.continentalFirstDivision.amount = [1, 2, 3, 4];
-        this.league.continental.continentalFirstDivision.name = "Fase de grupos da Liga dos Campeões"
-        this.league.continental.continentalSecondDivision.amount = [5];
-        this.league.continental.continentalSecondDivision.name = "Fase de grupos da Liga Europa"
-        this.league.continental.continentalThirdDivision.amount = [6];
-        this.league.continental.continentalThirdDivision.name = "Qualificatórias da Liga Conferência"
-        //this.league.relegated.qualifiersAmount = [16]
-        this.league.relegated.amount = [17, 18]
+        this.league = {
+          name: "ger",
+          relegated: {
+            amount: [17, 18],
+            qualifiersAmount: [16]
+          },
+          continental: {
+            continentalFirstDivision: {
+              amount: [1, 2, 3, 4],
+              name: "Fase de grupos da Liga dos Campeões"
+            },
+            continentalSecondDivision: {
+              amount: [5],
+              name: "Fase de grupos da Liga Europa"
+            },
+            continentalThirdDivision: {
+              amount: [6],
+              name: "Qualificatórias da Liga Conferência"
+            },
+          }
+        }
         break;
       case 8:
-        this.league.name = 'idn';
-        this.league.relegated.amount = [16, 17, 18]
+        this.league = {
+          name: "idn",
+          relegated: {
+            amount: [16, 17, 18]
+          },
+          continental: {
+            continentalFirstDivision: {
+              amount: [1],
+              name: "Fase de grupos da Liga dos Campeões da AFC"
+            }
+          }
+        }
         break;
       case 9:
-        this.league.name = 'ita';
-        this.league.continental.continentalFirstDivision.amount = [1, 2, 3, 4];
-        this.league.continental.continentalFirstDivision.name = "Fase de grupos da Liga dos Campeões"
-        this.league.continental.continentalSecondDivision.amount = [5];
-        this.league.continental.continentalSecondDivision.name = "Fase de grupos da Liga Europa"
-        this.league.continental.continentalThirdDivision.amount = [6];
-        this.league.continental.continentalThirdDivision.name = "Qualificatórias da Liga Conferência"
-        this.league.relegated.amount = [18, 19, 20]
+        this.league = {
+          name: "ita",
+          relegated: {
+            amount: [18, 19, 20]
+          },
+          continental: {
+            continentalFirstDivision: {
+              amount: [1, 2, 3, 4],
+              name: "Fase de grupos da Liga dos Campeões"
+            },
+            continentalSecondDivision: {
+              amount: [5],
+              name: "Fase de grupos da Liga Europa"
+            },
+            continentalThirdDivision: {
+              amount: [6],
+              name: "Qualificatórias da Liga Conferência"
+            },
+          }
+        }
         break;
       case 10:
-        this.league.name = 'jpn';
-        this.league.relegated.amount = [18]
+        this.league = {
+          name: "jpn",
+          relegated: {
+            amount: [18]
+          },
+          continental: {
+            continentalFirstDivision: {
+              amount: [1, 2],
+              name: "Fase de grupos da Liga dos Campeões da AFC"
+            },
+            continentalQualifiers: {
+              amount: [3],
+              name: "Qualificatórias da Liga dos Campeões da AFC"
+            }
+          }
+        }
         break;
       case 11:
-        this.league.name = 'mex';
+        this.league = {
+          name: "mex",
+          continental: {
+            continentalFirstDivision: {
+              amount: [1, 2, 3, 4],
+              name: "Série final"
+            },
+            continentalQualifiers: {
+              amount: [5, 6, 7, 8, 9, 10, 11, 12],
+              name: "Eliminatórias da série final"
+            }
+          }
+        }
         break;
       case 12:
-        this.league.name = 'por';
-        this.league.relegated.amount = [17, 18]
+        this.league = {
+          name: "por",
+          relegated: {
+            amount: [15, 16],
+            qualifiersAmount: [13, 14]
+          },
+          continental: {
+            continentalFirstDivision: {
+              amount: [1],
+              name: "Fase de grupos da Liga dos Campeões"
+            },
+            continentalQualifiers: {
+              amount: [3],
+              name: "Qualificatórias da Liga dos Campeões"
+            },
+            continentalThirdDivision: {
+              amount: [3, 4],
+              name: "Qualificatórias da Liga Conferência"
+            },
+          }
+        }
         break;
       case 13:
-        this.league.name = 'rus';
-        this.league.relegated.amount = [15, 16]
+        this.league = {
+          name: "rus",
+          relegated: {
+            amount: [17, 18],
+            qualifiersAmount: [16]
+          },
+          continental: {
+            continentalFirstDivision: {
+              amount: [1, 2],
+              name: "Fase de grupos da Liga dos Campeões"
+            },
+            continentalQualifiers: {
+              amount: [3],
+              name: "Qualificatórias da Liga dos Campeões"
+            },
+            continentalThirdDivision: {
+              amount: [4, 5],
+              name: "Qualificatórias da Liga Conferência"
+            },
+          }
+        }
         break;
       case 14:
-        this.league.name = 'sgp';
-
+        this.league = {
+          name: 'sgp'
+        }
         break;
       case 15:
-        this.league.name = 'esp';
-        this.league.continental.continentalFirstDivision.amount = [1, 2, 3, 4];
-        this.league.continental.continentalFirstDivision.name = "Fase de grupos da Liga dos Campeões"
-        this.league.continental.continentalSecondDivision.amount = [5];
-        this.league.continental.continentalSecondDivision.name = "Fase de grupos da Liga Europa"
-        this.league.continental.continentalThirdDivision.amount = [6];
-        this.league.continental.continentalThirdDivision.name = "Qualificatórias da Liga Conferência"
-        this.league.relegated.amount = [18, 19, 20]
+        this.league = {
+          name: "esp",
+          relegated: {
+            amount: [18, 19, 20]
+          },
+          continental: {
+            continentalFirstDivision: {
+              amount: [1, 2, 3, 4],
+              name: "Fase de grupos da Liga dos Campeões"
+            },
+            continentalSecondDivision: {
+              amount: [5],
+              name: "Fase de grupos da Liga Europa"
+            },
+            continentalThirdDivision: {
+              amount: [5],
+              name: "Fase de grupos da Liga Conferência"
+            }
+          }
+        }
         break;
       case 16:
-        this.league.name = 'tha';
+        this.league = {
+          name: 'tha'
+        }
         break;
       case 17:
-        this.league.name = 'tur';
-        this.league.continental.continentalFirstDivision.amount = [1];
-        this.league.continental.continentalFirstDivision.name = "Fase de grupos da Liga dos Campeões"
-        this.league.continental.continentalThirdDivision.amount = [2, 3];
-        this.league.continental.continentalThirdDivision.name = "Qualificatórias da Liga Conferência"
-        this.league.relegated.amount = [16, 17, 18, 19];
+        this.league = {
+          name: "tur",
+          relegated: {
+            amount: [16, 17, 18, 19]
+          },
+          continental: {
+            continentalFirstDivision: {
+              amount: [1],
+              name: "Fase de grupos da Liga dos Campeões"
+            },
+            continentalThirdDivision: {
+              amount: [2, 3],
+              name: "Qualificatórias da Liga Conferência"
+            }
+          }
+        }
         break;
       default:
-        this.league.name = 'bra';
-        this.league.continental.continentalFirstDivision.amount = [1, 2, 3, 4, 5, 6];
-        this.league.continental.continentalFirstDivision.name = "Fase de grupos da Copa Libertadores";
-        this.league.continental.continentalSecondDivision.amount = [9, 10, 11, 12, 14];
-        this.league.continental.continentalSecondDivision.name = "Fase de grupos da Copa Sul-Americana";
-        this.league.continental.continentalQualifiers.amount = [7, 8];
-        this.league.continental.continentalQualifiers.name = "Qualificatórias da Copa Libertadores"
-        this.league.relegated.amount = [17, 18, 19, 20];
+        this.league = {
+          name: "bra",
+          relegated: {
+            amount: [17, 18, 19, 20]
+          },
+          continental: {
+            continentalFirstDivision: {
+              amount: [1, 2, 3, 4, 5, 6],
+              name: "Fase de grupos da Copa Libertadores"
+            },
+            continentalQualifiers: {
+              amount: [7, 8],
+              name: "Qualificatórias da Copa Libertadores"
+            },
+            continentalSecondDivision: {
+              amount: [9, 10, 11, 12, 13, 14],
+              name: "Fase de grupos da Copa Sul-Americana"
+            },
+          }
+        }
         break;
     }
   }
