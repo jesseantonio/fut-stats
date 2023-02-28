@@ -1,27 +1,37 @@
 # FutStats
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.12.
+An app with real-time football statistics from the world's top leagues!
 
-## Development server
+## Features or Example
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+It is a SPA application with different leagues and seasons.
 
-## Code scaffolding
+## Motivation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+I've always been a football fanatic and joining code and football was the best solution!
 
-## Build
+## Requirements
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+This section is optional if there isn't any special dependencies. Else a bulletlist will suffice, e.g.,
++ [Node.js](https://nodejs.org/)
++ [Angular](https://angular.io)
 
-## Running unit tests
+## Installation or Getting Started
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+git clone https://github.com/jesseantonio/fut-stats
+```
+```bash
+npm install
+```
+```bash
+npm start
+```
 
-## Running end-to-end tests
+## Usage
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Show how to use the project or library.
+    
+## Reference
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
++ [azharimm](https://github.com/azharimm/football-standings-api)
