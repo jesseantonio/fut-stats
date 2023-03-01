@@ -8,9 +8,10 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { TableComponent } from './table/table.component';
 import { TeamRoutingModule } from './team-routing.module';
 import { ViewComponent } from './view/view.component';
+import { TableCaptionComponent } from './table-caption/table-caption.component';
 
 @NgModule({
-  declarations: [TableComponent, ViewComponent, DropdownComponent],
+  declarations: [TableComponent, ViewComponent, DropdownComponent, TableCaptionComponent],
   imports: [
     CommonModule,
     TeamRoutingModule,
