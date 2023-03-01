@@ -42,7 +42,6 @@ export class TableComponent implements OnInit, AfterViewChecked {
   }
 
   public buildTable() {
-    console.log(this.selectedLeague)
     this.getTeamStats(this.selectedLeague.name, this.ACTUAL_SEASON);
   }
 

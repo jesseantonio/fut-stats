@@ -1,0 +1,34 @@
+.square {
+  border-radius: 1px;
+  display: inline-block;
+  height: 8px;
+  vertical-align: middle;
+  width: 8px;
+}
+
+#first_division {
+  background-color: #4285F4;
+}
+
+#first_qualifiers {
+  background-color: #fa7b17;
+}
+
+#second_division {
+  background-color: #34A853;
+}
+
+#third_division {
+  background-color: #24C1E0;
+}
+
+#relegated {
+  background-color: #EA4335;
+}
+#relegated_qualifiers {
+  background-color: #FBBC04;
+}
+
+.table_caption {
+  margin-left: 10%;
+}

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-table-caption',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableCaptionComponent implements OnInit {
 
-  constructor() { }
+  public league: any;
+
+  constructor(private router: Router) {
+    this.league = this.router.getCurrentNavigation().extras.state[0];
+  }
+
+  @Input() season: Observable<string>;
 
   ngOnInit(): void {
+    console.log(this.league)
   }
 
 }
