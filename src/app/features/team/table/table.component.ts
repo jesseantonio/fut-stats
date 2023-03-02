@@ -30,6 +30,7 @@ export class TableComponent implements OnInit, AfterViewChecked {
   ngOnInit(): void {
     this.buildTable();
     this.getTeamLogo();
+    console.log(this.table)
   }
 
   ngAfterViewChecked(): void {
@@ -38,6 +39,7 @@ export class TableComponent implements OnInit, AfterViewChecked {
     }
     if (this.table != null) {
       this.setColorPositionInRow();
+      console.log(this.table)
     }
   }
 

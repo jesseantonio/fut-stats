@@ -1,39 +1,41 @@
-<div class="table_caption">
-  <span>Qualificação/Rebaixamento</span>
-  <div *ngIf="league.continental.continentalFirstDivision">
-    <div class="square" id="first_division"></div>
-    <span>
-      {{league.continental.continentalFirstDivision.name}}
-    </span>
-  </div>
-  <div *ngIf="league.continental.continentalQualifiers">
-    <div class="square" id="first_qualifiers"></div>
-    <span>
-      {{league.continental.continentalQualifiers.name}}
-    </span>
-  </div>
-  <div *ngIf="league.continental.continentalSecondDivision">
-    <div class="square" id="second_division"></div>
-    <span>
-      {{league.continental.continentalSecondDivision.name}}
-    </span>
-  </div>
-  <div *ngIf="league.continental.continentalThirdDivision">
-    <div class="square" id="third_division"></div>
-    <span>
-      {{league.continental.continentalThirdDivision.name}}
-    </span>
-  </div>
-  <div *ngIf="league.relegated.qualifiersAmount">
-    <div class="square" id="relegated_qualifiers"></div>
-    <span>
-      Eliminatórias do rebaixamento
-    </span>
-  </div>
-  <div *ngIf="league.relegated">
-    <div class="square" id="relegated"></div>
-    <span>
-      Rebaixamento
-    </span>
+<div class="table-caption">
+  <div class="table-caption-content">
+    <span class="title">Qualificação/Rebaixamento</span>
+    <div *ngIf="league.continental.continentalFirstDivision">
+      <div class="square" id="first_division"></div>
+      <span>
+        {{league.continental.continentalFirstDivision.name}}
+      </span>
+    </div>
+    <div *ngIf="league.continental.continentalQualifiers">
+      <div class="square" id="first_qualifiers"></div>
+      <span>
+        {{league.continental.continentalQualifiers.name}}
+      </span>
+    </div>
+    <div *ngIf="league.continental.continentalSecondDivision">
+      <div class="square" id="second_division"></div>
+      <span>
+        {{league.continental.continentalSecondDivision.name}}
+      </span>
+    </div>
+    <div *ngIf="league.continental.continentalThirdDivision">
+      <div class="square" id="third_division"></div>
+      <span>
+        {{league.continental.continentalThirdDivision.name}}
+      </span>
+    </div>
+    <div *ngIf="league.relegated.qualifiersAmount">
+      <div class="square" id="relegated_qualifiers"></div>
+      <span>
+        Eliminatórias do rebaixamento
+      </span>
+    </div>
+    <div *ngIf="league.relegated">
+      <div class="square" id="relegated"></div>
+      <span>
+        Rebaixamento
+      </span>
+    </div>
   </div>
 </div>
