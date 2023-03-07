@@ -197,7 +197,8 @@ export class BodyComponent implements OnInit {
               amount: [1],
               name: "Fase de grupos da Liga dos Campeões da AFC"
             }
-          }
+          },
+          alert: true
         }
         break;
       case 9:
@@ -237,7 +238,8 @@ export class BodyComponent implements OnInit {
               amount: [3],
               name: "Qualificatórias da Liga dos Campeões da AFC"
             }
-          }
+          },
+          alert: true
         }
         break;
       case 11:
@@ -303,7 +305,8 @@ export class BodyComponent implements OnInit {
         break;
       case 14:
         this.league = {
-          name: 'sgp'
+          name: 'sgp',
+          alert: true
         }
         break;
       case 15:
@@ -330,7 +333,8 @@ export class BodyComponent implements OnInit {
         break;
       case 16:
         this.league = {
-          name: 'tha'
+          name: 'tha',
+          alert: true
         }
         break;
       case 17:

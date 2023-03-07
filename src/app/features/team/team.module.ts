@@ -9,6 +9,7 @@ import { TableComponent } from './table/table.component';
 import { TeamRoutingModule } from './team-routing.module';
 import { ViewComponent } from './view/view.component';
 import { TableCaptionComponent } from './table-caption/table-caption.component';
+import { ToastModule } from 'src/app/shared/components/toast/toast.module';
 
 @NgModule({
   declarations: [TableComponent, ViewComponent, DropdownComponent, TableCaptionComponent],
@@ -18,7 +19,8 @@ import { TableCaptionComponent } from './table-caption/table-caption.component';
     MatCardModule,
     MatTableModule,
     FooterModule,
-    HeaderModule
+    HeaderModule,
+    ToastModule
   ],
 })
 export class TeamModule {}

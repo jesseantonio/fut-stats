@@ -1,5 +1,6 @@
 <app-header></app-header>
+<app-toast [alert]="alert"></app-toast>
 <app-dropdown (selectedSeason)="captureSeason($event)"></app-dropdown>
-<app-table [season]="season"></app-table>
+<app-table [season]="season" (alert)="captureAlert($event)"></app-table>
 <app-table-caption [season]="season"></app-table-caption>
 <app-footer></app-footer>

@@ -21,5 +21,6 @@ export interface League {
             amount: number[],
             name: string,
         }
-    }
+    },
+    alert?: boolean;
 }

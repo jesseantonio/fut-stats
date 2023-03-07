@@ -1,6 +1,6 @@
-import { AfterViewChecked, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { LegendType } from 'src/app/core/enums/legendType';
 import { TeamsService } from 'src/app/core/services/teams.service';
 
@@ -27,10 +27,12 @@ export class TableComponent implements OnInit, AfterViewChecked {
 
   @Input() season: Observable<string>;
 
+  @Output() alert: Subject<boolean> = new Subject<boolean>();
+
   ngOnInit(): void {
     this.buildTable();
     this.getTeamLogo();
-    console.log(this.table)
+    this.alert.next(this.selectedLeague.alert);
   }
 
   ngAfterViewChecked(): void {

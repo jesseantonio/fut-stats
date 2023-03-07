@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-toast',
@@ -7,12 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToastComponent implements OnInit {
 
-  constructor() { }
+  public selectedLeague: any;
+
+  constructor(private router: Router) {
+    this.selectedLeague = this.router.getCurrentNavigation().extras.state[0];
+   }
+
+  @Input() alert: Observable<string>;
 
   ngOnInit(): void {
+    console.log(this.selectedLeague)
   }
 
   public activate() {
+    debugger
+    console.log(this.selectedLeague)
     var toast = document.querySelector(".toast");
     var btn = document.querySelector(".toast-btn");
     var close = document.querySelector(".toast-close");
