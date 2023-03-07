@@ -18,7 +18,6 @@ export class TableCaptionComponent implements OnInit {
   @Input() season: Observable<string>;
 
   ngOnInit(): void {
-    console.log(this.league)
   }
 
 }

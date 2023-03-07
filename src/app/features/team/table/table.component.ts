@@ -41,7 +41,6 @@ export class TableComponent implements OnInit, AfterViewChecked {
     }
     if (this.table != null) {
       this.setColorPositionInRow();
-      console.log(this.table)
     }
   }
 

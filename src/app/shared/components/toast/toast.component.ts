@@ -13,17 +13,22 @@ export class ToastComponent implements OnInit {
 
   constructor(private router: Router) {
     this.selectedLeague = this.router.getCurrentNavigation().extras.state[0];
-   }
-
-  @Input() alert: Observable<string>;
-
-  ngOnInit(): void {
-    console.log(this.selectedLeague)
   }
 
-  public activate() {
-    debugger
-    console.log(this.selectedLeague)
+  @Input() alert: Observable<boolean>;
+
+  ngOnInit(): void {
+    console.log(this.alert)
+    this.activate();
+  }
+
+  public activate(): void {
+    if (this.alert != null) {
+        this.createToast();
+    }
+  }
+
+  public createToast() {
     var toast = document.querySelector(".toast");
     var btn = document.querySelector(".toast-btn");
     var close = document.querySelector(".toast-close");
