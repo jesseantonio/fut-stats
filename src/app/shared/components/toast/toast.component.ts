@@ -10,42 +10,35 @@ import { Observable } from 'rxjs';
 export class ToastComponent implements OnInit {
 
   public selectedLeague: any;
-  public teste: boolean = false;
+  public alert: boolean;
 
   constructor(private router: Router) {
     this.selectedLeague = this.router.getCurrentNavigation().extras.state[0];
+    this.selectedLeague.alert != undefined ? this.alert = this.selectedLeague.alert : null;
   }
 
-  @Input() alert: Observable<boolean>;
-
   ngOnInit(): void {
-    // console.log(this.alert)
-    // this.activate();
+    if (this.alert) {
+      this.activate();
+    }
   }
 
   public activate(): void {
-    this.teste = true;
-    this.createToast();
+    setTimeout(() => this.createToast(), 1200)
   }
 
   public createToast() {
-    var toast = document.querySelector(".toast");
-    var btn = document.querySelector(".toast-btn");
-    var progress = document.querySelector(".progress");
+    const toast = document.getElementById("toast");
+    const closeBtn = document.getElementById("close");
 
-    btn.addEventListener("click", () => {
-      debugger
-      toast.classList.add("active");
-      progress.classList.add("active");
+    toast.classList.add("active");
+    setTimeout(() => {
+      toast.classList.remove("active");
+    }, 5000)
 
-      setTimeout(() => {
-        toast.classList.remove("active");
-      }, 5000)
-
-      setTimeout(() => {
-        progress.classList.remove("active");
-        this.teste = false;
-      }, 5300)
+    closeBtn.addEventListener("click", () => {
+      toast.classList.remove("active");
     })
   }
+
 }
