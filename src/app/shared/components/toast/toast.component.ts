@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class ToastComponent implements OnInit {
 
   public selectedLeague: any;
+  public teste: boolean = false;
 
   constructor(private router: Router) {
     this.selectedLeague = this.router.getCurrentNavigation().extras.state[0];
@@ -18,23 +19,22 @@ export class ToastComponent implements OnInit {
   @Input() alert: Observable<boolean>;
 
   ngOnInit(): void {
-    console.log(this.alert)
-    this.activate();
+    // console.log(this.alert)
+    // this.activate();
   }
 
   public activate(): void {
-    if (this.alert != null) {
-        this.createToast();
-    }
+    this.teste = true;
+    this.createToast();
   }
 
   public createToast() {
     var toast = document.querySelector(".toast");
     var btn = document.querySelector(".toast-btn");
-    var close = document.querySelector(".toast-close");
     var progress = document.querySelector(".progress");
 
     btn.addEventListener("click", () => {
+      debugger
       toast.classList.add("active");
       progress.classList.add("active");
 
@@ -44,15 +44,8 @@ export class ToastComponent implements OnInit {
 
       setTimeout(() => {
         progress.classList.remove("active");
+        this.teste = false;
       }, 5300)
-    })
-
-    close.addEventListener("click", () => {
-      toast.classList.remove("active");
-
-      setTimeout(() => {
-        progress.classList.remove("active");
-      }, 300)
     })
   }
 }

@@ -18,7 +18,7 @@
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   border-left: 8px solid #40f467;
   overflow: hidden;
-  transform: translateX(calc(100% + 30px));
+  // transform: translateX(calc(100% + 30px));
   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.25, 1.35);
 }
 .toast.active{
@@ -64,6 +64,12 @@
   padding: 5px;
   cursor: pointer;
   opacity: 0.7;
+}
+
+.toast-after {
+  position: unset;
+  padding: 0;
+  transform: 0;
 }
 .toast-close:hover{
   opacity: 1;
