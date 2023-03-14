@@ -14,11 +14,8 @@ export class TableCaptionComponent implements OnInit {
 
   constructor(private router: Router, private localStorageService: LocalStorageService) {
     if (this.router.getCurrentNavigation().extras.state != undefined) {
-      console.log("askjdaksjdjka")
-      console.log(localStorageService.get("league"));
       this.league = this.router.getCurrentNavigation().extras.state[0];
     } else {
-      console.log(localStorageService.get("league"));
       this.league = localStorageService.get("league");
     }
   }
