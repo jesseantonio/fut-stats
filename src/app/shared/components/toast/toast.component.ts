@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 
 @Component({
   selector: 'app-toast',
@@ -12,8 +12,12 @@ export class ToastComponent implements OnInit {
   public selectedLeague: any;
   public alert: boolean;
 
-  constructor(private router: Router) {
-    this.selectedLeague = this.router.getCurrentNavigation().extras.state[0];
+  constructor(private router: Router, localStorageService: LocalStorageService) {
+    if (this.router.getCurrentNavigation().extras.state != undefined) {
+      this.selectedLeague = this.router.getCurrentNavigation().extras.state[0]; 3
+    } else {
+      this.selectedLeague = localStorageService.get("league");
+    }
     this.selectedLeague.alert != undefined ? this.alert = this.selectedLeague.alert : null;
   }
 

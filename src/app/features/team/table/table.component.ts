@@ -21,7 +21,6 @@ export class TableComponent implements OnInit, AfterViewChecked {
   public ACTUAL_SEASON = 2022;
 
   constructor(private teamsService: TeamsService, private router: Router, private localStorageService: LocalStorageService) {
-    console.log(this.router.getCurrentNavigation())
     if (this.router.getCurrentNavigation().extras.state != undefined) {
       this.selectedLeague = this.router.getCurrentNavigation().extras.state[0]; 3
       localStorageService.set("league", this.selectedLeague)
@@ -39,7 +38,6 @@ export class TableComponent implements OnInit, AfterViewChecked {
   ngOnInit(): void {
     this.buildTable();
     this.getTeamLogo();
-    console.log(this.selectedLeague)
     this.alert.next(this.selectedLeague.alert);
   }
 
