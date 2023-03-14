@@ -2,6 +2,7 @@ import { AfterViewChecked, Component, ElementRef, Input, OnInit, Output, ViewChi
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { LegendType } from 'src/app/core/enums/legendType';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { TeamsService } from 'src/app/core/services/teams.service';
 
 
@@ -19,8 +20,14 @@ export class TableComponent implements OnInit, AfterViewChecked {
   public selectedLeague: any;
   public ACTUAL_SEASON = 2022;
 
-  constructor(private teamsService: TeamsService, private router: Router) {
-    this.selectedLeague = this.router.getCurrentNavigation().extras.state[0];
+  constructor(private teamsService: TeamsService, private router: Router, private localStorageService: LocalStorageService) {
+    console.log(this.router.getCurrentNavigation())
+    if (this.router.getCurrentNavigation().extras.state != undefined) {
+      this.selectedLeague = this.router.getCurrentNavigation().extras.state[0]; 3
+      localStorageService.set("league", this.selectedLeague)
+    } else {
+      this.selectedLeague = localStorageService.get("league");
+    }
   }
 
   @ViewChild('table', { static: false }) table: ElementRef;
@@ -32,6 +39,7 @@ export class TableComponent implements OnInit, AfterViewChecked {
   ngOnInit(): void {
     this.buildTable();
     this.getTeamLogo();
+    console.log(this.selectedLeague)
     this.alert.next(this.selectedLeague.alert);
   }
 
