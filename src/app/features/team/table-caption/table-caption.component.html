@@ -27,7 +27,7 @@
         {{league.continental.continentalThirdDivision.name}}
       </span>
     </div>
-    <div *ngIf="league.relegated.qualifiersAmount">
+    <div *ngIf="league.relegated && league.relegated.qualifiersAmount">
       <div class="square" id="relegated_qualifiers"></div>
       <span>
         Eliminatórias do rebaixamento

@@ -65,7 +65,6 @@ export class TableComponent implements OnInit, AfterViewChecked {
     this.teamsService.logoTime().subscribe((value: any) => {
       let logosTimes = value.data.map((standing: { logos: { [x: string]: any; }; }) => standing.logos["light"])
       this.logos = logosTimes
-      debugger
     })
   }
 
@@ -85,7 +84,7 @@ export class TableComponent implements OnInit, AfterViewChecked {
   }
 
   public setRelegatedQualifierPositions() {
-    if (this.selectedLeague.relegated.qualifiersAmount != null) {
+    if (this.selectedLeague.relegated != null && this.selectedLeague.relegated.qualifiersAmount != null) {
       this.selectedLeague.relegated.qualifiersAmount.forEach((position: number) => {
         this.styleRowTable(this.table.nativeElement.children[position], this.table.nativeElement.lastElementChild, LegendType.RelegatedQualifiers);
       });
@@ -124,23 +123,24 @@ export class TableComponent implements OnInit, AfterViewChecked {
   }
 
   public styleRowTable(row: any, lastRow: any, type: LegendType) {
-    if (type === LegendType.Relegated) {
-      row.style.backgroundImage = "url('https://www.colorhexa.com/EA4335.png')";
-    } else if (type === LegendType.ContinentalFirstDivision) {
-      row.style.backgroundImage = "url('https://www.colorhexa.com/4285f4.png')";
-    } else if (type === LegendType.ContinentalQualifiers) {
-      row.style.backgroundImage = "url('https://www.colorhexa.com/fa7b17.png')";
-    } else if (type === LegendType.ContinentalSecondDivision) {
-      row.style.backgroundImage = "url('https://www.colorhexa.com/34A853.png')";
-    } else if (type === LegendType.ContinentalThirdDivision) {
-      row.style.backgroundImage = "url('https://www.colorhexa.com/24C1E0.png')";
-    } else {
-      row.style.backgroundImage = "url('https://www.colorhexa.com/FBBC04.png')";
+    if (row != null && lastRow != null) {
+      if (type === LegendType.Relegated) {
+        row.style.backgroundImage = "url('https://www.colorhexa.com/EA4335.png')";
+      } else if (type === LegendType.ContinentalFirstDivision) {
+        row.style.backgroundImage = "url('https://www.colorhexa.com/4285f4.png')";
+      } else if (type === LegendType.ContinentalQualifiers) {
+        row.style.backgroundImage = "url('https://www.colorhexa.com/fa7b17.png')";
+      } else if (type === LegendType.ContinentalSecondDivision) {
+        row.style.backgroundImage = "url('https://www.colorhexa.com/34A853.png')";
+      } else if (type === LegendType.ContinentalThirdDivision) {
+        row.style.backgroundImage = "url('https://www.colorhexa.com/24C1E0.png')";
+      } else {
+        row.style.backgroundImage = "url('https://www.colorhexa.com/FBBC04.png')";
+      }
+      row.style.backgroundRepeat = "no-repeat"
+      row.style.backgroundSize = "2.5px 98%"
+      lastRow.style.backgroundSize = "2.5px 100%";
     }
-
-    row.style.backgroundRepeat = "no-repeat"
-    row.style.backgroundSize = "2.5px 98%"
-    lastRow.style.backgroundSize = "2.5px 100%";
   }
 
   private setColorPositionInRow() {

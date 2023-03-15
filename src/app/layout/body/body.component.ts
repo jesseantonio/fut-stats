@@ -216,7 +216,7 @@ export class BodyComponent implements OnInit {
               amount: [5],
               name: "Fase de grupos da Liga Europa"
             },
-            continentalThirdDivision: {
+            continentalQualifiers: {
               amount: [6],
               name: "Qualificatórias da Liga Conferência"
             },
@@ -284,20 +284,20 @@ export class BodyComponent implements OnInit {
         this.league = {
           name: "rus",
           relegated: {
-            amount: [17, 18],
-            qualifiersAmount: [16]
+            amount: [15, 16],
+            qualifiersAmount: [13, 14]
           },
           continental: {
             continentalFirstDivision: {
-              amount: [1, 2],
+              amount: [1],
               name: "Fase de grupos da Liga dos Campeões"
             },
             continentalQualifiers: {
-              amount: [3],
+              amount: [2],
               name: "Qualificatórias da Liga dos Campeões"
             },
-            continentalThirdDivision: {
-              amount: [4, 5],
+            continentalSecondDivision: {
+              amount: [3, 4],
               name: "Qualificatórias da Liga Conferência"
             },
           }
