@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { finalize, tap, throwError } from 'rxjs';
 import { League } from 'src/app/core/entities/league';
+import { LoaderService } from 'src/app/core/services/loader.service';
 import { TeamsService } from 'src/app/core/services/teams.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class BodyComponent implements OnInit {
   public league = {} as League;
   public loading: boolean = true;
 
-  constructor(private teamsService: TeamsService, private router: Router) { }
+  constructor(private teamsService: TeamsService, private router: Router, public loaderService: LoaderService) { }
 
   ngOnInit(): void {
     this.getLogoTeams();

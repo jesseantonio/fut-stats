@@ -1,6 +1,7 @@
 import { AfterViewChecked, Component, ElementRef, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
+import { LoaderService } from 'src/app/core/core.module';
 import { LegendType } from 'src/app/core/enums/legendType';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { TeamsService } from 'src/app/core/services/teams.service';
@@ -20,7 +21,7 @@ export class TableComponent implements OnInit, AfterViewChecked {
   public selectedLeague: any;
   public ACTUAL_SEASON = 2022;
 
-  constructor(private teamsService: TeamsService, private router: Router, private localStorageService: LocalStorageService) {
+  constructor(private teamsService: TeamsService, private router: Router, localStorageService: LocalStorageService, public loaderService: LoaderService) {
     if (this.router.getCurrentNavigation().extras.state != undefined) {
       this.selectedLeague = this.router.getCurrentNavigation().extras.state[0]; 3
       localStorageService.set("league", this.selectedLeague)

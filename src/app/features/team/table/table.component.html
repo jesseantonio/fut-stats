@@ -1,29 +1,36 @@
-<div class="container-inner">
-  <table #table>
-    <tr>
-      <th *ngFor="let header of headers">
-        <p>
-          {{ header }}
-        </p>
-      </th>
-    </tr>
-    <tr *ngFor="let team of teams; let i = index">
-      <td class="info">
-        <div class="position">
-          {{ (i + 1) }}
-        </div>
-        <div class="logo">
-          <img class="logo_time" [src]="team.logos[0].href" alt="">
-        </div>
-        <div class="name">
-          {{ team.displayName }}
-        </div>
-      </td>
-      <td *ngFor="let stat of formatTeamStats(team.stats)">
-        <p>
-          {{ stat.value }}
-        </p>
-      </td>
-    </tr>
-  </table>
+<div *ngIf="!(loaderService.isLoading | async); else loadingState">
 </div>
+<div *ngIf="!(loaderService.isLoading | async); else loadingState">
+  <div class="container-inner">
+    <table #table>
+      <tr>
+        <th *ngFor="let header of headers">
+          <p>
+            {{ header }}
+          </p>
+        </th>
+      </tr>
+      <tr *ngFor="let team of teams; let i = index">
+        <td class="info">
+          <div class="position">
+            {{ (i + 1) }}
+          </div>
+          <div class="logo">
+            <img class="logo_time" [src]="team.logos[0].href" alt="">
+          </div>
+          <div class="name">
+            {{ team.displayName }}
+          </div>
+        </td>
+        <td *ngFor="let stat of formatTeamStats(team.stats)">
+          <p>
+            {{ stat.value }}
+          </p>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<ng-template #loadingState>
+  <app-spinner></app-spinner>
+</ng-template>

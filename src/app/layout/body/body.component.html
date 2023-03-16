@@ -21,13 +21,13 @@
   </div>
 </section>
 <h1 class="title-2">Nossas Ligas</h1>
-<article class="parent">
-  <div class="" *ngFor="let logo of logos; let i = index" [attr.data-index]="i">
-    <div *ngIf="!loading; else loadingState">
+<div *ngIf="!(loaderService.isLoading | async); else loadingState">
+  <article class="parent">
+    <div class="" *ngFor="let logo of logos; let i = index" [attr.data-index]="i">
       <img (click)="onClickOnTeam(i)" class="box" [src]="logo" alt="">
     </div>
-    <ng-template #loadingState>
-      <div (click)="onClickOnTeam(i)" class="box loader" alt=""></div>
-    </ng-template>
-  </div>
-</article>
+  </article>
+</div>
+<ng-template #loadingState>
+  <app-spinner></app-spinner>
+</ng-template>

@@ -4,6 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { FooterModule } from '../shared/components/footer/footer.module';
 import { HeaderModule } from '../shared/components/header/header.module';
+import { SpinnerModule } from '../shared/components/spinner/spinner.module';
 import { BodyComponent } from './body/body.component';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { ViewComponent } from './view/view.component';
@@ -16,7 +17,8 @@ import { ViewComponent } from './view/view.component';
     MatCardModule,
     MatTableModule,
     FooterModule,
-    HeaderModule
+    HeaderModule,
+    SpinnerModule
   ],
 })
 export class LayoutModule {}

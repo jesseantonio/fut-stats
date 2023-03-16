@@ -9,6 +9,7 @@ import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterModule } from './shared/components/footer/footer.module';
 import { HeaderModule } from './shared/components/header/header.module';
+import { SpinnerModule } from './shared/components/spinner/spinner.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HeaderModule } from './shared/components/header/header.module';
     CoreModule,
     BrowserAnimationsModule,
     FooterModule,
-    HeaderModule
+    HeaderModule,
+    SpinnerModule
 
   ],
   providers: [],

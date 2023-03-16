@@ -10,6 +10,7 @@ import { TeamRoutingModule } from './team-routing.module';
 import { ViewComponent } from './view/view.component';
 import { TableCaptionComponent } from './table-caption/table-caption.component';
 import { ToastModule } from 'src/app/shared/components/toast/toast.module';
+import { SpinnerModule } from 'src/app/shared/components/spinner/spinner.module';
 
 @NgModule({
   declarations: [TableComponent, ViewComponent, DropdownComponent, TableCaptionComponent],
@@ -20,7 +21,8 @@ import { ToastModule } from 'src/app/shared/components/toast/toast.module';
     MatTableModule,
     FooterModule,
     HeaderModule,
-    ToastModule
+    ToastModule,
+    SpinnerModule
   ],
 })
 export class TeamModule {}
