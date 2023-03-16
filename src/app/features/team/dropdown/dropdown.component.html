@@ -1,7 +1,9 @@
-<div class="select-dropdown">
-  <select #seasonsDropdown (change)="onSelected($event)">
-    <option *ngFor="let season of seasons" [value]="season">
-      <span class="text-dropdown"> {{season}} </span>
-    </option>
-  </select>
+<div class="dropdown">
+  <div class="select-dropdown">
+    <select #seasonsDropdown (change)="onSelected($event)">
+      <option *ngFor="let season of seasons" [value]="season">
+        <span class="text-dropdown"> {{season}} </span>
+      </option>
+    </select>
+  </div>
 </div>
