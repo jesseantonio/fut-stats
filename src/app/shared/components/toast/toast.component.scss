@@ -15,6 +15,7 @@
 
 .toast {
   position: fixed;
+  opacity: 0.7;
   top: 25px;
   right: 25px;
   width: 375px;
@@ -24,7 +25,7 @@
   align-items: center;
   justify-content: space-between;
   border-radius: 12px;
-  border-left: 3px solid red;
+  border-left: 3px solid #0a3151;
   overflow: hidden;
   transform: translateX(calc(100% + 25px));
   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35)
@@ -48,7 +49,7 @@
 
 
 .toast i:first-child {
-  color: red;
+  color: #0a3151;
   font-size: 20px;
 }
 

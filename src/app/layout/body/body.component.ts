@@ -55,7 +55,10 @@ export class BodyComponent implements OnInit {
         }
         break;
       case 1:
-        this.league.name = 'aus';
+        this.league = {
+          name:'aus',
+          alert: true
+        };
         break;
       case 2:
         this.league = {
@@ -239,8 +242,7 @@ export class BodyComponent implements OnInit {
               amount: [3],
               name: "Qualificatórias da Liga dos Campeões da AFC"
             }
-          },
-          alert: true
+          }
         }
         break;
       case 11:
@@ -301,7 +303,8 @@ export class BodyComponent implements OnInit {
               amount: [3, 4],
               name: "Qualificatórias da Liga Conferência"
             },
-          }
+          },
+          alert: true
         }
         break;
       case 14:
@@ -353,7 +356,8 @@ export class BodyComponent implements OnInit {
               amount: [2, 3],
               name: "Qualificatórias da Liga Conferência"
             }
-          }
+          },
+          alert: true
         }
         break;
       default:

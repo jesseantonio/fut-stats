@@ -38,7 +38,7 @@ export class ToastComponent implements OnInit {
     toast.classList.add("active");
     setTimeout(() => {
       toast.classList.remove("active");
-    }, 5000)
+    }, 7500)
 
     closeBtn.addEventListener("click", () => {
       toast.classList.remove("active");
