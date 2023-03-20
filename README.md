@@ -1,4 +1,4 @@
-<div align='center'><img style="width:30%" src='https://uploaddeimagens.com.br/imagens/JS6CZE0'/></div>
+<div align='center'><img style="width:15%" src='https://uploaddeimagens.com.br/images/004/398/336/full/football-2411134_960_720.png?1679275916'/></div>
 
 ## About the project
 
